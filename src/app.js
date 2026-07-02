@@ -22,6 +22,7 @@ const referralRoutes = require('./routes/referrals');
 const messageRoutes = require('./routes/messages');
 const appointmentRoutes = require('./routes/appointments');
 const quickRequestRoutes = require('./routes/quickRequests');
+const leadRoutes = require('./routes/leads');
 
 const app = express();
 
@@ -135,6 +136,7 @@ app.use('/api/v1/payments', paymentRoutes);
 app.use('/api/v1/referrals', referralRoutes);
 app.use('/api/v1/messages', messageRoutes);
 app.use('/api/v1/appointments', appointmentRoutes);
+app.use('/api/v1/leads', leadRoutes);
 app.use('/api/v1/quick-requests', quickRequestRoutes);
 
 app.use((req, res) => {

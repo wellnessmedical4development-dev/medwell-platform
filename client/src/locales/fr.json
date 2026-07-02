@@ -503,6 +503,17 @@
     "desktop_scan": "Scannez le code QR avec votre téléphone pour télécharger l'application.",
     "download_app": "Télécharger l'App",
     "mobile_only": "Mobile Uniquement",
-    "apk_coming_soon": "Génération de l'application en cours. Disponible prochainement."
+    "apk_coming_soon": "Génération de l'application en cours. Disponible prochainement.",
+    "preorder_title": "Application Bientôt Disponible",
+    "preorder_desc": "Soyez parmi les premiers à découvrir l'application Medical Wellness. Précommandez maintenant et gagnez des récompenses exclusives en Wellness Coins au lancement !",
+    "preorder_form_name": "Nom Complet",
+    "preorder_form_phone": "Numéro de Téléphone",
+    "preorder_form_email": "Email (optionnel)",
+    "preorder_submit": "Précommander",
+    "preorder_success_title": "Vous êtes sur la liste !",
+    "preorder_success_desc": "Merci pour votre précommande. Vous serez notifié lors du lancement et recevrez des Wellness Coins bonus en tant que premier utilisateur.",
+    "preorder_coins": "Gagnez des Wellness Coins",
+    "preorder_learn": "À Propos de l'App",
+    "preorder_app_desc": "Gérez vos abonnements, rendez-vous, carte de fidélité et wellness coins — le tout depuis un seul endroit. Relevez des défis, gagnez des récompenses et suivez votre parcours bien-être."
   }
 }

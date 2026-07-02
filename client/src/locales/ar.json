@@ -494,6 +494,17 @@
     "desktop_scan": "امسح رمز QR بهاتفك لتحميل التطبيق.",
     "download_app": "تحميل التطبيق",
     "mobile_only": "للجوال فقط",
-    "apk_coming_soon": "توليد التطبيق قيد التنفيذ. سيكون متاحاً قريباً."
+    "apk_coming_soon": "توليد التطبيق قيد التنفيذ. سيكون متاحاً قريباً.",
+    "preorder_title": "التطبيق قريباً",
+    "preorder_desc": "كن من أوائل من يجربون تطبيق ميديكال ويلنس. اطلب مسبقاً الآن واربح مكافآت حصرية من Wellness Coins عند الإطلاق!",
+    "preorder_form_name": "الاسم الكامل",
+    "preorder_form_phone": "رقم الهاتف",
+    "preorder_form_email": "البريد الإلكتروني (اختياري)",
+    "preorder_submit": "اطلب مسبقاً",
+    "preorder_success_title": "أنت في القائمة!",
+    "preorder_success_desc": "شكراً لطلبك المسبق. سنخطرك عند إطلاق التطبيق وستربح Wellness Coins إضافية كأحد مستخدمينا الأوائل.",
+    "preorder_coins": "اربح Wellness Coins",
+    "preorder_learn": "عن التطبيق",
+    "preorder_app_desc": "أدر اشتراكاتك ومواعيدك وبطاقة الولاء و Wellness Coins — كل ذلك من مكان واحد. تحدى أصدقائك واربح المكافآت وتابع رحلتك الصحية."
   }
 }

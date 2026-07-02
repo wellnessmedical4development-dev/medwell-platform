@@ -90,6 +90,10 @@ export const wellnessCoinAPI = {
   transferHistory: () => api.get('/wellness-coins/transfer/history'),
 };
 
+export const leadsAPI = {
+  preorder: (data) => api.post('/leads', data),
+};
+
 export const prospectsAPI = {
   stats: () => api.get('/prospects/stats'),
   list: (params) => api.get('/prospects', { params }),

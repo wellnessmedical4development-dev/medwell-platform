@@ -1,10 +1,9 @@
 import { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import useTranslation from '../../hooks/useTranslation';
 import { servicesAPI } from '../../services/api';
 import SplitText from '../ui/SplitText';
 import BlurImage from '../ui/BlurImage';
-import BookingModal from '../ui/BookingModal';
 import RippleButton from '../ui/RippleButton';
 
 const FALLBACK_SERVICES = [
@@ -58,12 +57,19 @@ const cardVariants = {
   }),
 };
 
+const WHATSAPP_NUMBER = '212666993030';
+
+const WHATSAPP_MSG = {
+  en: (s) => `Hello, I am interested in the "${s}" program at Medical Wellness.`,
+  fr: (s) => `Bonjour, je suis intéressé(e) par le programme "${s}" chez Medical Wellness.`,
+  es: (s) => `Hola, estoy interesado(a) en el programa "${s}" en Medical Wellness.`,
+  ar: (s) => `مرحباً، أنا مهتم(ة) ببرنامج "${s}" في ميديكال ويلنس.`,
+};
+
 export default function ServicesSection() {
   const { t, lang } = useTranslation();
   const [services, setServices] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [selectedService, setSelectedService] = useState(null);
-  const [showBooking, setShowBooking] = useState(false);
   const isRtl = lang === 'ar';
 
   useEffect(() => {
@@ -95,9 +101,10 @@ export default function ServicesSection() {
     return service.code || '';
   };
 
-  const triggerBooking = (title) => {
-    setSelectedService(title);
-    setShowBooking(true);
+  const openWhatsApp = (serviceTitle) => {
+    const msgFn = WHATSAPP_MSG[lang] || WHATSAPP_MSG.en;
+    const text = encodeURIComponent(msgFn(serviceTitle));
+    window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${text}`, '_blank');
   };
 
   if (loading) return null;
@@ -158,10 +165,10 @@ export default function ServicesSection() {
                   </p>
 
                   <RippleButton
-                    onClick={() => triggerBooking(title)}
+                    onClick={() => openWhatsApp(title)}
                     className="group/btn inline-flex items-center justify-center gap-2 w-full px-4 py-3 bg-[#D4AF37] hover:bg-champagne-600 text-dark-900 rounded-xl text-xs font-bold tracking-widest uppercase transition-all duration-300 shadow-[0_4px_16px_rgba(212,175,55,0.2)] mt-auto"
                   >
-                    <span>Réserver / S'abonner</span>
+                    <span>{t('services.inquire')}</span>
                     <svg className="w-3.5 h-3.5 shrink-0 transition-transform duration-300 group-hover/btn:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
                   </RippleButton>
                 </div>
@@ -170,8 +177,6 @@ export default function ServicesSection() {
           })}
         </div>
       </div>
-
-      <BookingModal isOpen={showBooking} onClose={() => { setShowBooking(false); setSelectedService(null); }} serviceTitle={selectedService} />
     </section>
   );
 }
