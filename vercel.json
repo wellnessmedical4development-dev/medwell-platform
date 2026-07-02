@@ -1,4 +1,5 @@
 {
+  "buildCommand": "echo 'api-only-deploy'",
   "installCommand": "npm install",
   "outputDirectory": "public",
   "routes": [
