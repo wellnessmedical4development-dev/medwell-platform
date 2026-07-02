@@ -44,16 +44,6 @@ app.use(i18nMiddleware.handle(i18next));
 app.use(setLang);
 app.use(rtlRedirect);
 
-const oneYear = 365 * 24 * 60 * 60 * 1000;
-app.use(express.static(path.join(__dirname, '..', 'client', 'dist'), {
-  maxAge: oneYear,
-  immutable: true,
-  setHeaders(res, filePath) {
-    if (filePath.endsWith('.webp') || filePath.endsWith('.jpg') || filePath.endsWith('.jpeg') || filePath.endsWith('.png') || filePath.endsWith('.svg')) {
-      res.setHeader('Cache-Control', 'public, max-age=31536000, immutable');
-    }
-  },
-}));
 app.use('/uploads', express.static(path.join(__dirname, '..', 'uploads')));
 
 const authLimiter = rateLimit({
@@ -134,9 +124,6 @@ app.use('/api/v1/appointments', appointmentRoutes);
 app.use('/api/v1/quick-requests', quickRequestRoutes);
 
 app.use((req, res) => {
-  if (req.accepts('html') && !req.path.startsWith('/api/')) {
-    return res.sendFile(path.join(__dirname, '..', 'client', 'dist', 'index.html'));
-  }
   res.status(404).json({ error: 'Route not found' });
 });
 
