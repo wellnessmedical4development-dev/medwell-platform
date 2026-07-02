@@ -408,6 +408,84 @@
     "phone": "Numéro de Téléphone",
     "gender": "Genre"
   },
+  "benefits": {
+    "badge": "Pourquoi Medical Wellness",
+    "title": "Votre Santé, Notre Expertise",
+    "subtitle": "Découvrez comment notre approche globale du bien-être médical à Tanger vous aide à atteindre une santé durable, vitalité et paix intérieure grâce à des traitements fondés sur des preuves et des soins personnalisés.",
+    "items": [
+      {
+        "key": "preventive",
+        "icon": "shield",
+        "title": "Médecine Préventive",
+        "desc": "Nos programmes de médecine préventive à Tanger se concentrent sur la détection précoce et l'optimisation métabolique. Grâce à des bilans avancés, analyses morphologiques et profilage micronutritionnel (Oligocheck), nous identifions les risques avant qu'ils ne deviennent des problèmes."
+      },
+      {
+        "key": "body-contouring",
+        "icon": "body",
+        "title": "Remodelage Corporel & Amincissement",
+        "desc": "Obtenez la silhouette de vos rêves avec nos technologies non invasives — HIFU, CRYO et Powershape. Nos programmes minceur à Tanger ciblent la graisse localisée, la cellulite et le relâchement cutané pour des résultats visibles et durables."
+      },
+      {
+        "key": "anti-aging",
+        "icon": "sparkle",
+        "title": "Anti-Âge & Médecine Esthétique",
+        "desc": "Remontez le temps avec nos traitements anti-âge avancés. Du HIFU lifting à la cryothérapie en passant par les soins de peau personnalisés, nos services vous aident à conserver une apparence jeune et éclatante à tout âge."
+      },
+      {
+        "key": "physiotherapy",
+        "icon": "health",
+        "title": "Kinésithérapie & Rééducation",
+        "desc": "Retrouvez votre mobilité, soulagez les douleurs chroniques et récupérez après une blessure grâce à nos traitements avancés de kinésithérapie. Nos experts utilisent des techniques de pointe pour accélérer la guérison."
+      },
+      {
+        "key": "nutrition",
+        "icon": "leaf",
+        "title": "Accompagnement Nutritionnel",
+        "desc": "Transformez votre santé de l'intérieur avec des plans nutritionnels personnalisés du Dr. Abdelali Mernissi. Nos programmes de rééquilibrage métabolique abordent la gestion du poids, les intolérances et les carences nutritionnelles."
+      },
+      {
+        "key": "relaxation",
+        "icon": "heart",
+        "title": "SPA de Luxe & Détente",
+        "desc": "Rechargez votre corps et votre esprit dans notre SPA de luxe et authentique hammam marocain. Alliant traditions séculaires et techniques modernes, notre expérience SPA à Tanger offre l'évasion ultime du stress quotidien."
+      }
+    ]
+  },
+  "faq": {
+    "badge": "FAQ",
+    "title": "Questions Fréquentes",
+    "subtitle": "Trouvez les réponses à vos questions sur notre centre de bien-être médical, nos programmes, nos tarifs et ce qui vous attend lors de votre parcours bien-être à Tanger.",
+    "items": [
+      {
+        "q": "Qu'est-ce que Medical Wellness et en quoi est-ce différent d'un spa classique ?",
+        "a": "Medical Wellness est un centre de santé pluridisciplinaire d'élite à Tanger (Malabata) qui combine médecine préventive, technologies avancées (HIFU, CRYO, Powershape, I-SLIM), kinésithérapie, nutrition et soins SPA holistiques. Contrairement à un spa classique, nos programmes sont conçus et supervisés par des professionnels de santé."
+      },
+      {
+        "q": "Où se situe Medical Wellness à Tanger ?",
+        "a": "Nous sommes situés à la Villa Mernissi, Bella Vista, à côté de Malabata Mall, en face Tanja Balia - Tanger, Maroc. Notre centre est facilement accessible depuis tous les quartiers de la ville."
+      },
+      {
+        "q": "Quels programmes et services proposez-vous ?",
+        "a": "Nous proposons une gamme complète de programmes bien-être : Nutrition & accompagnement diététique, Kinésithérapie & rééducation, I-SLIM électro-stimulation, Amincissement & remodelage (HIFU, CRYO, Powershape), Fitness, Médecine esthétique & anti-âge, SPA de luxe & hammam marocain, et Bilans bien-être complets."
+      },
+      {
+        "q": "Ai-je besoin d'une ordonnance pour réserver un programme ?",
+        "a": "Ce n'est pas toujours nécessaire, mais nous recommandons de commencer par un Bilan Bien-être pour déterminer le programme le plus adapté. Notre équipe médicale vous guidera et pourra recommander une consultation si des traitements spécifiques l'exigent."
+      },
+      {
+        "q": "Combien de temps durent les programmes bien-être ?",
+        "a": "La durée varie selon le programme : Nutrition (30 jours), I-SLIM et amincissement (30 jours), kinésithérapie (15 jours), fitness (30 jours), SPA (séances individuelles). Notre équipe peut personnaliser la durée selon vos objectifs."
+      },
+      {
+        "q": "Quels modes de paiement acceptez-vous ?",
+        "a": "Nous acceptons les espèces, cartes bancaires et virements. Nous proposons également des abonnements (mensuel, trimestriel, annuel) avec des options de paiement flexibles. Contactez notre équipe pour les tarifs et promotions en cours."
+      },
+      {
+        "q": "Puis-je réserver une consultation en ligne ?",
+        "a": "Oui ! Vous pouvez réserver directement via notre site web ou par WhatsApp. Parcourez nos programmes, sélectionnez celui qui vous intéresse et soumettez une demande. Notre équipe vous contactera sous 24h pour confirmer."
+      }
+    ]
+  },
   "errors": {
     "server_error": "Une erreur est survenue. Veuillez réessayer.",
     "not_found": "Introuvable",

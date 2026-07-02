@@ -3,6 +3,8 @@ import StructuredData from '../StructuredData';
 import Navbar from './Navbar';
 import HeroSection from './HeroSection';
 import ServicesSection from './ServicesSection';
+import BenefitsSection from './BenefitsSection';
+import FAQSection from './FAQSection';
 import AboutSection from './AboutSection';
 import CTASection from './CTASection';
 import AppSection from './DemoSection';
@@ -28,6 +30,8 @@ export default function LandingPage() {
       <Navbar />
       <HeroSection />
       <ServicesSection />
+      <BenefitsSection />
+      <FAQSection />
       <AboutSection />
       <CTASection />
       <AppSection />

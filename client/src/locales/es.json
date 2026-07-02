@@ -399,6 +399,84 @@
     "phone": "Número de Teléfono",
     "gender": "Género"
   },
+  "benefits": {
+    "badge": "Por Qué Medical Wellness",
+    "title": "Tu Salud, Nuestra Experiencia",
+    "subtitle": "Descubre cómo nuestro enfoque integral del bienestar médico en Tánger te ayuda a alcanzar una salud duradera, vitalidad y paz interior a través de tratamientos basados en evidencia y atención personalizada.",
+    "items": [
+      {
+        "key": "preventive",
+        "icon": "shield",
+        "title": "Medicina Preventiva",
+        "desc": "Nuestros programas de medicina preventiva en Tánger se centran en la detección temprana y la optimización metabólica. Mediante evaluaciones avanzadas, análisis morfológicos y perfilado micronutricional (Oligocheck), identificamos riesgos antes de que se conviertan en problemas."
+      },
+      {
+        "key": "body-contouring",
+        "icon": "body",
+        "title": "Moldeo Corporal y Adelgazamiento",
+        "desc": "Consigue la silueta deseada con nuestras tecnologías no invasivas — HIFU, CRYO y Powershape. Nuestros programas de adelgazamiento en Tánger eliminan grasa localizada, celulitis y flacidez cutánea con resultados visibles y duraderos."
+      },
+      {
+        "key": "anti-aging",
+        "icon": "sparkle",
+        "title": "Medicina Antienvejecimiento y Estética",
+        "desc": "Retrasa el reloj con nuestros avanzados tratamientos antienvejecimiento. Desde HIFU lifting y crioterapia hasta protocolos personalizados de cuidado facial, te ayudamos a mantener una apariencia juvenil y radiante."
+      },
+      {
+        "key": "physiotherapy",
+        "icon": "health",
+        "title": "Fisioterapia y Rehabilitación",
+        "desc": "Recupera tu movilidad, alivia el dolor crónico y rehabílitate tras una lesión con nuestros avanzados tratamientos de fisioterapia. Nuestros expertos utilizan técnicas de vanguardia para acelerar la recuperación."
+      },
+      {
+        "key": "nutrition",
+        "icon": "leaf",
+        "title": "Asesoramiento Nutricional",
+        "desc": "Transforma tu salud desde dentro con planes nutricionales personalizados del Dr. Abdelali Mernissi. Nuestros programas de reequilibrio metabólico abordan el control de peso, intolerancias y deficiencias nutricionales."
+      },
+      {
+        "key": "relaxation",
+        "icon": "heart",
+        "title": "SPA de Lujo y Relaxación",
+        "desc": "Rejuvenece tu mente y cuerpo en nuestro SPA de lujo y auténtico hammam marroquí. Combinando tradiciones centenarias con técnicas modernas, nuestra experiencia SPA en Tánger ofrece la escapada definitiva del estrés diario."
+      }
+    ]
+  },
+  "faq": {
+    "badge": "FAQ",
+    "title": "Preguntas Frecuentes",
+    "subtitle": "Encuentra respuestas a tus preguntas sobre nuestro centro de bienestar médico, programas, precios y qué esperar durante tu viaje de bienestar en Tánger.",
+    "items": [
+      {
+        "q": "¿Qué es Medical Wellness y en qué se diferencia de un spa normal?",
+        "a": "Medical Wellness es un centro de salud multidisciplinario de élite en Tánger (Malabata) que combina medicina preventiva, tecnologías avanzadas (HIFU, CRYO, Powershape, I-SLIM), fisioterapia, nutrición y tratamientos SPA holísticos. A diferencia de un spa, nuestros programas son diseñados y supervisados por profesionales médicos."
+      },
+      {
+        "q": "¿Dónde está ubicado Medical Wellness en Tánger?",
+        "a": "Estamos ubicados en Villa Mernissi, Bella Vista, junto a Malabata Mall, frente a Tanja Balia - Tánger, Marruecos. Nuestro centro es fácilmente accesible desde todas las partes de la ciudad."
+      },
+      {
+        "q": "¿Qué programas y servicios ofrecen?",
+        "a": "Ofrecemos una amplia gama de programas: Nutrición y asesoramiento dietético, Fisioterapia y rehabilitación, I-SLIM electroestimulación, Adelgazamiento y moldeo corporal (HIFU, CRYO, Powershape), Fitness, Medicina estética y antienvejecimiento, SPA de lujo y hammam marroquí, y Evaluaciones completas de bienestar."
+      },
+      {
+        "q": "¿Necesito receta médica para reservar un programa?",
+        "a": "No siempre es necesario, pero recomendamos comenzar con una Evaluación de Bienestar para determinar el programa más adecuado. Nuestro equipo médico le guiará y podrá recomendar una consulta si ciertos tratamientos lo requieren."
+      },
+      {
+        "q": "¿Cuánto duran los programas de bienestar?",
+        "a": "La duración varía: Nutrición (30 días), I-SLIM y adelgazamiento (30 días), fisioterapia (15 días), fitness (30 días), SPA (sesiones individuales). Nuestro equipo puede personalizar la duración según sus objetivos de salud."
+      },
+      {
+        "q": "¿Qué métodos de pago aceptan?",
+        "a": "Aceptamos efectivo, tarjetas de crédito y transferencias bancarias. También ofrecemos planes de suscripción (mensual, trimestral, anual) con opciones de pago flexibles. Contacte a nuestro equipo para precios y promociones actuales."
+      },
+      {
+        "q": "¿Puedo reservar una consulta en línea?",
+        "a": "¡Sí! Puede reservar directamente a través de nuestro sitio web o por WhatsApp. Simplemente explore nuestros programas, seleccione el que le interese y envíe una solicitud. Nuestro equipo le contactará en 24 horas para confirmar su cita."
+      }
+    ]
+  },
   "errors": {
     "server_error": "Algo salió mal. Inténtalo de nuevo.",
     "not_found": "No encontrado",

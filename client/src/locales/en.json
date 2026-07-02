@@ -408,6 +408,84 @@
     "phone": "Phone Number",
     "gender": "Gender"
   },
+  "benefits": {
+    "badge": "Why Medical Wellness",
+    "title": "Your Health, Our Expertise",
+    "subtitle": "Discover how our comprehensive approach to medical wellness in Tangier helps you achieve lasting health, vitality, and inner peace through evidence-based treatments and personalized care.",
+    "items": [
+      {
+        "key": "preventive",
+        "icon": "shield",
+        "title": "Preventive Health Care",
+        "desc": "Our preventive medicine programs in Tangier focus on early detection and metabolic optimization. Through advanced screening, morphological analysis, and micronutrition profiling (Oligocheck), we identify risks before they become problems, helping you maintain peak health year-round."
+      },
+      {
+        "key": "body-contouring",
+        "icon": "body",
+        "title": "Body Contouring & Slimming",
+        "desc": "Achieve your ideal silhouette with our non-invasive body contouring technologies — HIFU, CRYO, and Powershape. Our slimming programs in Tangier target stubborn fat, cellulite, and skin laxity for visible, lasting results without surgery or downtime."
+      },
+      {
+        "key": "anti-aging",
+        "icon": "sparkle",
+        "title": "Anti-Aging & Aesthetic Medicine",
+        "desc": "Turn back the clock with our advanced anti-aging treatments. From HIFU facelifts and cryotherapy to customized skincare protocols, our aesthetic medicine services help you maintain a youthful, radiant appearance at any age."
+      },
+      {
+        "key": "physiotherapy",
+        "icon": "health",
+        "title": "Physiotherapy & Rehabilitation",
+        "desc": "Restore mobility, relieve chronic pain, and recover from injury with our advanced physiotherapy treatments. Our expert kinésithérapeutes use cutting-edge techniques to accelerate healing and improve physical performance."
+      },
+      {
+        "key": "nutrition",
+        "icon": "leaf",
+        "title": "Nutritional Counseling",
+        "desc": "Transform your health from the inside out with personalized nutrition plans from Dr. Abdelali Mernissi. Our metabolic rebalancing programs address weight management, food intolerances, and nutritional deficiencies for sustainable wellness."
+      },
+      {
+        "key": "relaxation",
+        "icon": "heart",
+        "title": "Luxury SPA & Relaxation",
+        "desc": "Rejuvenate your mind and body in our luxury SPA and authentic Moroccan hammam. Combining centuries-old relaxation traditions with modern wellness techniques, our SPA experience in Tangier offers the ultimate escape from daily stress."
+      }
+    ]
+  },
+  "faq": {
+    "badge": "FAQ",
+    "title": "Frequently Asked Questions",
+    "subtitle": "Find answers to common questions about our medical wellness center, programs, pricing, and what to expect during your wellness journey in Tangier.",
+    "items": [
+      {
+        "q": "What is Medical Wellness and how is it different from a regular spa?",
+        "a": "Medical Wellness is an elite multidisciplinary health center in Tangier (Malabata) that combines preventive medicine, advanced technologies (HIFU, CRYO, Powershape, I-SLIM), physiotherapy, nutrition, and holistic SPA treatments. Unlike a regular spa, our programs are designed and supervised by medical professionals including Dr. Abdelali Mernissi, with personalized assessments and evidence-based protocols."
+      },
+      {
+        "q": "Where is Medical Wellness located in Tangier?",
+        "a": "We are located at Villa Mernissi, Bella Vista, next to Malabata Mall, opposite Tanja Balia in Tangier, Morocco. Our center is easily accessible from all parts of the city with convenient parking available."
+      },
+      {
+        "q": "What programs and services do you offer?",
+        "a": "We offer a comprehensive range of wellness programs including: Nutrition & dietary counseling, Physiotherapy & rehabilitation, I-SLIM electro-stimulation for muscle toning, Body contouring & slimming (HIFU, CRYO, Powershape), Fitness training, Aesthetic medicine & anti-aging treatments, Luxury SPA & Moroccan hammam, and complete Wellness Assessments with morphological analysis."
+      },
+      {
+        "q": "Do I need a medical prescription to book a program?",
+        "a": "While not always required, we recommend starting with a Wellness Assessment to determine the most suitable program for your needs. Our medical team will guide you through the options and may recommend a consultation if specific treatments require medical clearance."
+      },
+      {
+        "q": "How long do the wellness programs typically last?",
+        "a": "Program duration varies by type: Nutrition programs typically run 30 days, I-SLIM and body contouring programs are 30 days, physiotherapy sessions are 15 days, fitness programs are 30 days, and SPA experiences can be booked as single sessions. Our team can customize a program duration based on your specific health goals."
+      },
+      {
+        "q": "What payment methods do you accept?",
+        "a": "We accept various payment methods including cash, credit cards, and bank transfers. We also offer subscription plans (monthly, quarterly, annual) with flexible payment options. Contact our team for detailed pricing and current promotions."
+      },
+      {
+        "q": "Can I book a consultation online?",
+        "a": "Yes! You can book a consultation directly through our website or via WhatsApp. Simply browse our programs, select the one that interests you, and submit a booking request. Our support team will contact you within 24 hours to confirm your appointment."
+      }
+    ]
+  },
   "errors": {
     "server_error": "Something went wrong. Please try again.",
     "not_found": "Not found",
