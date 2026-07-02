@@ -1,8 +1,7 @@
-import { useState, useEffect, useMemo } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useTheme } from '../../contexts/ThemeContext';
 import useTranslation from '../../hooks/useTranslation';
-import { useAuth } from '../../contexts/AuthContext';
 import { Link } from 'react-router-dom';
 
 const LANG_OPTIONS = [
@@ -12,19 +11,12 @@ const LANG_OPTIONS = [
   { code: 'ar', label: 'AR' },
 ];
 
-function isMobileDevice() {
-  if (typeof navigator === 'undefined') return false;
-  return /android|iphone|ipad|ipod|webos|blackberry|windows phone/i.test(navigator.userAgent);
-}
-
 export default function Navbar() {
   const { t } = useTranslation();
   const { mode, toggleMode, lang, setLang } = useTheme();
-  const { isAuthenticated, isAdmin } = useAuth();
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [langOpen, setLangOpen] = useState(false);
-  const isMobile = useMemo(isMobileDevice, []);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -124,11 +116,11 @@ export default function Navbar() {
             </button>
 
             <Link
-              to={isMobile ? '/download' : (isAuthenticated ? (isAdmin ? '/admin' : '/client') : '/login')}
+              to="/download"
               className="hidden xs:inline-flex items-center gap-1.5 sm:gap-2 px-3 xs:px-3 sm:px-5 py-1.5 sm:py-2 bg-dark-900 dark:bg-champagne-400 text-white dark:text-dark-900 rounded-full text-[9px] xs:text-[10px] sm:text-xs font-semibold tracking-wider uppercase hover:bg-dark-800 dark:hover:bg-champagne-500 transition-all duration-300 whitespace-nowrap"
             >
               <svg className="w-3 xs:w-3 sm:w-3.5 h-3 xs:h-3 sm:h-3.5 hidden xs:block" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" /></svg>
-              {isMobile ? t('download.download_app') : t('nav.portal')}
+              {t('download.download_app')}
             </Link>
 
             <button
@@ -168,11 +160,11 @@ export default function Navbar() {
                 </a>
               ))}
               <Link
-                to={isMobile ? '/download' : (isAuthenticated ? (isAdmin ? '/admin' : '/client') : '/login')}
+                to="/download"
                 onClick={() => setMobileOpen(false)}
                 className="block text-center mt-2 sm:mt-3 px-5 py-2.5 sm:py-3 bg-dark-900 dark:bg-champagne-400 text-white dark:text-dark-900 rounded-full text-xs font-semibold tracking-wider uppercase lg:hidden"
               >
-                {isMobile ? t('download.download_app') : t('nav.portal')}
+                {t('download.download_app')}
               </Link>
             </div>
           </motion.div>
