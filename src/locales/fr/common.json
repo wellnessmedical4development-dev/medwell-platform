@@ -1,0 +1,100 @@
+{
+  "site": {
+    "title": "MedWell — Bien-Être Médical de Luxe",
+    "tagline": "Là où la Science Rencontre la Sérénité",
+    "cta": "Réservez Votre Parcours Bien-Être",
+    "learn_more": "En Savoir Plus",
+    "contact_us": "Contactez-Nous"
+  },
+  "nav": {
+    "home": "Accueil",
+    "services": "Services",
+    "about": "À Propos",
+    "portal": "Portail Client",
+    "admin": "Tableau de Bord",
+    "lang_switch": "Langue"
+  },
+  "landing": {
+    "hero_title": "Retrouvez Votre Équilibre",
+    "hero_subtitle": "Des programmes de bien-être premium adaptés à votre corps et votre esprit.",
+    "services_title": "Nos Programmes Bien-Être",
+    "services_desc": "Des cures détox intensives au yoga restaurateur — chaque programme est conçu par des professionnels de santé.",
+    "why_title": "Pourquoi MedWell ?",
+    "why_1_title": "Qualité Médicale",
+    "why_1_desc": "Chaque programme est supervisé par des médecins agréés.",
+    "why_2_title": "Expérience Luxueuse",
+    "why_2_desc": "Des environnements 5 étoiles conçus pour une détente totale.",
+    "why_3_title": "Résultats Garantis",
+    "why_3_desc": "Des résultats mesurés cliniquement que vous pouvez voir et ressentir.",
+    "testimonials_title": "Ce Que Disent Nos Clients",
+    "cta_section_title": "Commencez Votre Transformation",
+    "cta_section_desc": "Votre parcours vers un bien-être optimal commence par une simple conversation."
+  },
+  "services": {
+    "duration": "Durée",
+    "price": "Prix",
+    "days": "jours",
+    "inquire_via_whatsapp": "S'informer via WhatsApp",
+    "wellness_coin_reward": "Récompense WellnessCoin"
+  },
+  "auth": {
+    "login": "Connexion",
+    "register": "Créer un Compte",
+    "logout": "Déconnexion",
+    "phone": "Numéro de Téléphone",
+    "password": "Mot de Passe",
+    "confirm_password": "Confirmer le Mot de Passe",
+    "forgot_password": "Mot de Passe Oublié ?",
+    "welcome_back": "Bon Retour",
+    "create_account": "Créez Votre Compte",
+    "legacy_found": "Bon retour ! Nous avons trouvé vos anciens dossiers. Veuillez définir un nouveau mot de passe pour activer votre carte de membre numérique.",
+    "membership_activated": "Votre carte de membre numérique ({{unique_id}}) est maintenant active !"
+  },
+  "client": {
+    "dashboard": "Mon Tableau de Bord",
+    "membership_card": "Carte de Membre Numérique",
+    "subscriptions": "Mes Abonnements",
+    "wellness_coins": "Mes WellnessCoins",
+    "balance": "Solde",
+    "total_paid": "Total Payé",
+    "amount_remaining": "Solde Restant",
+    "cancel_subscription": "Résilier l'Abonnement",
+    "renew_subscription": "Renouveler l'Abonnement",
+    "confirm_cancel": "Êtes-vous sûr de vouloir résilier cet abonnement ?",
+    "subscription_cancelled": "Abonnement résilié avec succès.",
+    "subscription_renewed": "Abonnement renouvelé avec succès.",
+    "no_subscriptions": "Vous n'avez aucun abonnement actif."
+  },
+  "admin": {
+    "dashboard": "Tableau de Bord Admin",
+    "clients": "Gestion des Clients",
+    "services": "Gestion des Services",
+    "appointments": "Rendez-vous",
+    "import_legacy": "Importer des Clients Historiques",
+    "wellness_coins": "Aperçu des WellnessCoins",
+    "total_clients": "Total Clients",
+    "active_subscriptions": "Abonnements Actifs",
+    "total_revenue": "Revenu Total",
+    "legacy_linked": "Clients Historiques Liés",
+    "legacy_unlinked": "Clients Historiques en Attente",
+    "upload_csv": "Importer CSV/Excel",
+    "upload_hint": "Formats acceptés : .csv, .xlsx, .xls. Colonnes : full_name, phone, email, past_membership, membership_start, membership_end, total_spent",
+    "import_success": "{{count}} enregistrements importés avec succès.",
+    "client_detail": "Détail du Client",
+    "adjust_coins": "Ajuster les WellnessCoins",
+    "subscription_status": "Statut de l'Abonnement"
+  },
+  "whatsapp": {
+    "inquire_template": "Bonjour ! Je suis {{name}}, je souhaite me renseigner sur le programme \"{{service}}\" chez MedWell."
+  },
+  "errors": {
+    "not_found": "Ressource non trouvée.",
+    "unauthorized": "Veuillez vous connecter pour continuer.",
+    "forbidden": "Vous n'avez pas la permission.",
+    "validation_error": "Veuillez vérifier vos entrées.",
+    "server_error": "Une erreur est survenue. Veuillez réessayer.",
+    "phone_exists": "Ce numéro de téléphone est déjà enregistré.",
+    "email_exists": "Cet email est déjà enregistré.",
+    "invalid_credentials": "Numéro de téléphone ou mot de passe invalide."
+  }
+}

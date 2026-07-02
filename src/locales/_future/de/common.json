@@ -1,0 +1,6 @@
+{
+  "site": { "title": "MedWell — Luxus-Medizinisches Wellness", "tagline": "Wo Wissenschaft auf Gelassenheit trifft" },
+  "nav": { "home": "Startseite", "services": "Leistungen", "portal": "Kundenportal", "admin": "Admin-Dashboard", "lang_switch": "Sprache" },
+  "auth": { "login": "Anmelden", "register": "Konto erstellen", "phone": "Telefonnummer", "password": "Passwort" },
+  "whatsapp": { "inquire_template": "Hallo! Ich bin {{name}} und möchte mich nach dem Programm \"{{service}}\" bei MedWell erkundigen." }
+}

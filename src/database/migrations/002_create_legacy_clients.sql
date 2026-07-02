@@ -1,0 +1,28 @@
+-- 002_create_legacy_clients.sql
+CREATE TABLE IF NOT EXISTS legacy_clients (
+  id                CHAR(36) PRIMARY KEY,
+  first_name        VARCHAR(100) NOT NULL,
+  last_name         VARCHAR(100) NOT NULL,
+  email             VARCHAR(255),
+  phone             VARCHAR(20) NOT NULL,
+  gender            ENUM('male','female','other'),
+  date_of_birth     DATE,
+  address           TEXT,
+  city              VARCHAR(100),
+  country           VARCHAR(100) DEFAULT 'Morocco',
+  past_membership   VARCHAR(255),
+  membership_start  DATE,
+  membership_end    DATE,
+  total_spent       DECIMAL(12,2) NOT NULL DEFAULT 0.00,
+  notes             TEXT,
+  import_batch      VARCHAR(100),
+  raw_data          JSON,
+  matched_user_id   CHAR(36),
+  matched_at        TIMESTAMP NULL,
+  created_at        TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  updated_at        TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  INDEX idx_legacy_phone (phone),
+  INDEX idx_legacy_email (email),
+  INDEX idx_legacy_batch (import_batch),
+  INDEX idx_legacy_matched (matched_user_id)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;

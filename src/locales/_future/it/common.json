@@ -1,0 +1,6 @@
+{
+  "site": { "title": "MedWell — Benessere Medico di Lusso", "tagline": "Dove la Scienza Incontra la Serenità" },
+  "nav": { "home": "Home", "services": "Servizi", "portal": "Portale Clienti", "admin": "Pannello Admin", "lang_switch": "Lingua" },
+  "auth": { "login": "Accedi", "register": "Registrati", "phone": "Numero di telefono", "password": "Password" },
+  "whatsapp": { "inquire_template": "Ciao! Sono {{name}}, vorrei informarmi sul programma \"{{service}}\" presso MedWell." }
+}

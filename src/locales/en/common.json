@@ -1,0 +1,100 @@
+{
+  "site": {
+    "title": "MedWell — Premium Medical Wellness",
+    "tagline": "Where Science Meets Serenity",
+    "cta": "Book Your Wellness Journey",
+    "learn_more": "Learn More",
+    "contact_us": "Contact Us"
+  },
+  "nav": {
+    "home": "Home",
+    "services": "Services",
+    "about": "About",
+    "portal": "Client Portal",
+    "admin": "Admin Dashboard",
+    "lang_switch": "Language"
+  },
+  "landing": {
+    "hero_title": "Rediscover Your Balance",
+    "hero_subtitle": "Premium wellness programs tailored to your body and mind.",
+    "services_title": "Our Wellness Programs",
+    "services_desc": "From detox intensives to restorative yoga — each program is curated by medical professionals.",
+    "why_title": "Why MedWell?",
+    "why_1_title": "Medical Grade",
+    "why_1_desc": "Every program is supervised by licensed physicians.",
+    "why_2_title": "Luxury Experience",
+    "why_2_desc": "5-star environments designed for total relaxation.",
+    "why_3_title": "Results Driven",
+    "why_3_desc": "Clinically measured outcomes you can see and feel.",
+    "testimonials_title": "What Our Guests Say",
+    "cta_section_title": "Begin Your Transformation",
+    "cta_section_desc": "Your journey to optimal wellness starts with a single conversation."
+  },
+  "services": {
+    "duration": "Duration",
+    "price": "Price",
+    "days": "days",
+    "inquire_via_whatsapp": "Inquire via WhatsApp",
+    "wellness_coin_reward": "WellnessCoin Reward"
+  },
+  "auth": {
+    "login": "Sign In",
+    "register": "Create Account",
+    "logout": "Sign Out",
+    "phone": "Phone Number",
+    "password": "Password",
+    "confirm_password": "Confirm Password",
+    "forgot_password": "Forgot Password?",
+    "welcome_back": "Welcome Back",
+    "create_account": "Create Your Account",
+    "legacy_found": "Welcome back! We found your previous records. Please set a new password to activate your digital membership card.",
+    "membership_activated": "Your digital membership card ({{unique_id}}) is now active!"
+  },
+  "client": {
+    "dashboard": "My Dashboard",
+    "membership_card": "Digital Membership Card",
+    "subscriptions": "My Subscriptions",
+    "wellness_coins": "My WellnessCoins",
+    "balance": "Balance",
+    "total_paid": "Total Paid",
+    "amount_remaining": "Remaining Balance",
+    "cancel_subscription": "Cancel Subscription",
+    "renew_subscription": "Renew Subscription",
+    "confirm_cancel": "Are you sure you want to cancel this subscription?",
+    "subscription_cancelled": "Subscription cancelled successfully.",
+    "subscription_renewed": "Subscription renewed successfully.",
+    "no_subscriptions": "You have no active subscriptions."
+  },
+  "admin": {
+    "dashboard": "Admin Dashboard",
+    "clients": "Clients Management",
+    "services": "Services Management",
+    "appointments": "Appointments",
+    "import_legacy": "Import Legacy Clients",
+    "wellness_coins": "WellnessCoin Overview",
+    "total_clients": "Total Clients",
+    "active_subscriptions": "Active Subscriptions",
+    "total_revenue": "Total Revenue",
+    "legacy_linked": "Legacy Clients Linked",
+    "legacy_unlinked": "Legacy Clients Pending",
+    "upload_csv": "Upload CSV/Excel",
+    "upload_hint": "Accepted formats: .csv, .xlsx, .xls. Columns: full_name, phone, email, past_membership, membership_start, membership_end, total_spent",
+    "import_success": "Successfully imported {{count}} legacy records.",
+    "client_detail": "Client Detail",
+    "adjust_coins": "Adjust WellnessCoins",
+    "subscription_status": "Subscription Status"
+  },
+  "errors": {
+    "not_found": "Resource not found.",
+    "unauthorized": "Please sign in to continue.",
+    "forbidden": "You do not have permission.",
+    "validation_error": "Please check your input.",
+    "server_error": "Something went wrong. Please try again.",
+    "phone_exists": "This phone number is already registered.",
+    "email_exists": "This email is already registered.",
+    "invalid_credentials": "Invalid phone number or password."
+  },
+  "whatsapp": {
+    "inquire_template": "Hello! I am {{name}}, I would like to inquire about the \"{{service}}\" program at MedWell."
+  }
+}

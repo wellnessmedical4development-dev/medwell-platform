@@ -1,0 +1,100 @@
+{
+  "site": {
+    "title": "MedWell — Bienestar Médico Premium",
+    "tagline": "Donde la Ciencia Encuentra la Serenidad",
+    "cta": "Reserva Tu Viaje de Bienestar",
+    "learn_more": "Más Información",
+    "contact_us": "Contáctanos"
+  },
+  "nav": {
+    "home": "Inicio",
+    "services": "Servicios",
+    "about": "Nosotros",
+    "portal": "Portal del Cliente",
+    "admin": "Panel de Administración",
+    "lang_switch": "Idioma"
+  },
+  "landing": {
+    "hero_title": "Redescubre Tu Equilibrio",
+    "hero_subtitle": "Programas de bienestar premium adaptados a tu cuerpo y mente.",
+    "services_title": "Nuestros Programas de Bienestar",
+    "services_desc": "Desde programas intensivos de desintoxicación hasta yoga restaurativo — cada programa está curado por profesionales médicos.",
+    "why_title": "¿Por qué MedWell?",
+    "why_1_title": "Grado Médico",
+    "why_1_desc": "Cada programa es supervisado por médicos autorizados.",
+    "why_2_title": "Experiencia de Lujo",
+    "why_2_desc": "Ambientes de 5 estrellas diseñados para la relajación total.",
+    "why_3_title": "Resultados Comprobados",
+    "why_3_desc": "Resultados medidos clínicamente que puedes ver y sentir.",
+    "testimonials_title": "Lo Que Dicen Nuestros Huéspedes",
+    "cta_section_title": "Comienza Tu Transformación",
+    "cta_section_desc": "Tu viaje hacia el bienestar óptimo comienza con una sola conversación."
+  },
+  "services": {
+    "duration": "Duración",
+    "price": "Precio",
+    "days": "días",
+    "inquire_via_whatsapp": "Consultar por WhatsApp",
+    "wellness_coin_reward": "Recompensa WellnessCoin"
+  },
+  "auth": {
+    "login": "Iniciar Sesión",
+    "register": "Crear Cuenta",
+    "logout": "Cerrar Sesión",
+    "phone": "Número de Teléfono",
+    "password": "Contraseña",
+    "confirm_password": "Confirmar Contraseña",
+    "forgot_password": "¿Olvidaste tu Contraseña?",
+    "welcome_back": "Bienvenido de Nuevo",
+    "create_account": "Crea Tu Cuenta",
+    "legacy_found": "¡Bienvenido de nuevo! Encontramos tus registros anteriores. Por favor, establece una nueva contraseña para activar tu tarjeta de membresía digital.",
+    "membership_activated": "¡Tu tarjeta de membresía digital ({{unique_id}}) ya está activa!"
+  },
+  "client": {
+    "dashboard": "Mi Panel",
+    "membership_card": "Tarjeta de Membresía Digital",
+    "subscriptions": "Mis Suscripciones",
+    "wellness_coins": "Mis WellnessCoins",
+    "balance": "Saldo",
+    "total_paid": "Total Pagado",
+    "amount_remaining": "Saldo Restante",
+    "cancel_subscription": "Cancelar Suscripción",
+    "renew_subscription": "Renovar Suscripción",
+    "confirm_cancel": "¿Estás seguro de que deseas cancelar esta suscripción?",
+    "subscription_cancelled": "Suscripción cancelada exitosamente.",
+    "subscription_renewed": "Suscripción renovada exitosamente.",
+    "no_subscriptions": "No tienes suscripciones activas."
+  },
+  "admin": {
+    "dashboard": "Panel de Administración",
+    "clients": "Gestión de Clientes",
+    "services": "Gestión de Servicios",
+    "appointments": "Citas",
+    "import_legacy": "Importar Clientes Históricos",
+    "wellness_coins": "Resumen de WellnessCoins",
+    "total_clients": "Total de Clientes",
+    "active_subscriptions": "Suscripciones Activas",
+    "total_revenue": "Ingresos Totales",
+    "legacy_linked": "Clientes Históricos Vinculados",
+    "legacy_unlinked": "Clientes Históricos Pendientes",
+    "upload_csv": "Subir CSV/Excel",
+    "upload_hint": "Formatos aceptados: .csv, .xlsx, .xls. Columnas: full_name, phone, email, past_membership, membership_start, membership_end, total_spent",
+    "import_success": "{{count}} registros importados exitosamente.",
+    "client_detail": "Detalle del Cliente",
+    "adjust_coins": "Ajustar WellnessCoins",
+    "subscription_status": "Estado de la Suscripción"
+  },
+  "whatsapp": {
+    "inquire_template": "¡Hola! Soy {{name}}, me gustaría informarme sobre el programa \"{{service}}\" en MedWell."
+  },
+  "errors": {
+    "not_found": "Recurso no encontrado.",
+    "unauthorized": "Por favor inicia sesión para continuar.",
+    "forbidden": "No tienes permiso.",
+    "validation_error": "Por favor verifica tus datos.",
+    "server_error": "Algo salió mal. Inténtalo de nuevo.",
+    "phone_exists": "Este número de teléfono ya está registrado.",
+    "email_exists": "Este correo electrónico ya está registrado.",
+    "invalid_credentials": "Número de teléfono o contraseña inválidos."
+  }
+}

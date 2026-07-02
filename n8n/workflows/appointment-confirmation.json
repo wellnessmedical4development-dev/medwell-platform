@@ -1,0 +1,162 @@
+{
+  "name": "MedWell - AI Appointment Confirmation",
+  "nodes": [
+    {
+      "name": "Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2,
+      "position": [250, 300],
+      "parameters": {
+        "path": "medwell-inquiry",
+        "responseMode": "lastNode",
+        "options": {}
+      },
+      "webhookId": "medwell-inquiry"
+    },
+    {
+      "name": "WhatsApp Send Message",
+      "type": "n8n-nodes-base.wa",
+      "typeVersion": 1,
+      "position": [450, 300],
+      "parameters": {
+        "resource": "message",
+        "phoneNumber": "={{ $json.prospect_phone }}",
+        "message": "={{ \"Hello \" + $json.prospect_name + \"! Thank you for your interest in \" + $json.interested_program + \" at MedWell. A wellness consultant will contact you shortly to confirm your appointment.\" }}",
+        "options": {}
+      }
+    },
+    {
+      "name": "HTTP Request (MedWell API)",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4,
+      "position": [650, 300],
+      "parameters": {
+        "method": "POST",
+        "url": "={{ $env.MEDWELL_API_URL }}/api/v1/prospects/webhook",
+        "authentication": "genericCredentialType",
+        "genericAuthType": "httpHeaderAuth",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            { "name": "x-n8n-api-key", "value": "={{ $env.N8N_API_KEY }}" },
+            { "name": "Content-Type", "value": "application/json" }
+          ]
+        },
+        "sendBody": true,
+        "bodyParameters": {
+          "parameters": [
+            { "name": "full_name", "value": "={{ $json.prospect_name }}" },
+            { "name": "phone", "value": "={{ $json.prospect_phone }}" },
+            { "name": "email", "value": "={{ $json.prospect_email }}" },
+            { "name": "interested_service", "value": "={{ $json.interested_program }}" },
+            { "name": "scheduled_at", "value": "={{ $json.scheduled_at }}" },
+            { "name": "n8n_workflow_id", "value": "={{ $json.workflow_id }}" },
+            { "name": "n8n_execution_id", "value": "={{ $json.execution_id }}" }
+          ]
+        }
+      }
+    },
+    {
+      "name": "AI Agent (GPT)",
+      "type": "n8n-nodes-base.openAi",
+      "typeVersion": 1,
+      "position": [250, 500],
+      "parameters": {
+        "resource": "chat",
+        "model": "gpt-4o-mini",
+        "messages": {
+          "values": [
+            {
+              "role": "system",
+              "content": "You are a helpful wellness consultant for MedWell. Extract the prospect's name, phone number, and interested program from the conversation. Respond warmly in the same language as the prospect."
+            },
+            {
+              "role": "user",
+              "content": "={{ $json.conversation_text }}"
+            }
+          ]
+        },
+        "options": {
+          "responseFormat": {
+            "type": "json_schema",
+            "json_schema": {
+              "name": "prospect_extraction",
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "prospect_name": { "type": "string" },
+                  "prospect_phone": { "type": "string" },
+                  "interested_program": { "type": "string" },
+                  "language": { "type": "string" },
+                  "summary": { "type": "string" }
+                },
+                "required": ["prospect_name", "prospect_phone"]
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "name": "Set Appointment Data",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3,
+      "position": [450, 500],
+      "parameters": {
+        "values": {
+          "string": [
+            { "name": "prospect_name", "value": "={{ $json.prospect_name }}" },
+            { "name": "prospect_phone", "value": "={{ $json.prospect_phone }}" },
+            { "name": "interested_program", "value": "={{ $json.interested_program }}" },
+            { "name": "prospect_email", "value": "={{ $json.prospect_email }}" }
+          ]
+        }
+      }
+    }
+  ],
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "AI Agent (GPT)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AI Agent (GPT)": {
+      "main": [
+        [
+          {
+            "node": "Set Appointment Data",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set Appointment Data": {
+      "main": [
+        [
+          {
+            "node": "WhatsApp Send Message",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "HTTP Request (MedWell API)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "staticData": null,
+  "tags": ["medwell", "whatsapp", "appointments"]
+}

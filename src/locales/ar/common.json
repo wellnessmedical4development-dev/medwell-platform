@@ -1,0 +1,100 @@
+{
+  "site": {
+    "title": "ميدويل — العافية الطبية الفاخرة",
+    "tagline": "حيث يلتقي العلم بالسكينة",
+    "cta": "احجز رحلتك الصحية",
+    "learn_more": "اعرف المزيد",
+    "contact_us": "اتصل بنا"
+  },
+  "nav": {
+    "home": "الرئيسية",
+    "services": "الخدمات",
+    "about": "حول",
+    "portal": "بوابة العميل",
+    "admin": "لوحة الإدارة",
+    "lang_switch": "اللغة"
+  },
+  "landing": {
+    "hero_title": "أعد اكتشاف توازنك",
+    "hero_subtitle": "برامج عافية فاخرة مصممة خصيصاً لجسدك وعقلك.",
+    "services_title": "برامجنا الصحية",
+    "services_desc": "من برامج إزالة السموم المكثفة إلى اليوغا التأملية — كل برنامج من إعداد أطباء مختصين.",
+    "why_title": "لماذا ميدويل؟",
+    "why_1_title": "درجة طبية",
+    "why_1_desc": "كل برنامج تحت إشراف أطباء مرخصين.",
+    "why_2_title": "تجربة فاخرة",
+    "why_2_desc": "بيئة فاخرة مصممة للاسترخاء التام.",
+    "why_3_title": "نتائج ملموسة",
+    "why_3_desc": "نتائج مُقاسة إكلينيكياً يمكنك رؤيتها والشعور بها.",
+    "testimonials_title": "ماذا يقول ضيوفنا",
+    "cta_section_title": "ابدأ تحولك",
+    "cta_section_desc": "رحلتك نحو العافية المثلى تبدأ بمحادثة واحدة."
+  },
+  "services": {
+    "duration": "المدة",
+    "price": "السعر",
+    "days": "أيام",
+    "inquire_via_whatsapp": "استفسر عبر واتساب",
+    "wellness_coin_reward": "مكافأة عملات العافية"
+  },
+  "auth": {
+    "login": "تسجيل الدخول",
+    "register": "إنشاء حساب",
+    "logout": "تسجيل الخروج",
+    "phone": "رقم الهاتف",
+    "password": "كلمة المرور",
+    "confirm_password": "تأكيد كلمة المرور",
+    "forgot_password": "نسيت كلمة المرور؟",
+    "welcome_back": "مرحباً بعودتك",
+    "create_account": "أنشئ حسابك",
+    "legacy_found": "مرحباً بعودتك! وجدنا سجلاتك السابقة. يرجى تعيين كلمة مرور جديدة لتفعيل بطاقة العضوية الرقمية الخاصة بك.",
+    "membership_activated": "بطاقة عضويتك الرقمية ({{unique_id}}) نشطة الآن!"
+  },
+  "client": {
+    "dashboard": "لوحة التحكم",
+    "membership_card": "بطاقة العضوية الرقمية",
+    "subscriptions": "اشتراكاتي",
+    "wellness_coins": "عملات العافية",
+    "balance": "الرصيد",
+    "total_paid": "إجمالي المدفوع",
+    "amount_remaining": "الرصيد المتبقي",
+    "cancel_subscription": "إلغاء الاشتراك",
+    "renew_subscription": "تجديد الاشتراك",
+    "confirm_cancel": "هل أنت متأكد من رغبتك في إلغاء هذا الاشتراك؟",
+    "subscription_cancelled": "تم إلغاء الاشتراك بنجاح.",
+    "subscription_renewed": "تم تجديد الاشتراك بنجاح.",
+    "no_subscriptions": "لا توجد اشتراكات نشطة."
+  },
+  "admin": {
+    "dashboard": "لوحة الإدارة",
+    "clients": "إدارة العملاء",
+    "services": "إدارة الخدمات",
+    "appointments": "المواعيد",
+    "import_legacy": "استيراد العملاء القدامى",
+    "wellness_coins": "نظرة عامة على عملات العافية",
+    "total_clients": "إجمالي العملاء",
+    "active_subscriptions": "الاشتراكات النشطة",
+    "total_revenue": "إجمالي الإيرادات",
+    "legacy_linked": "العملاء القدامى المرتبطون",
+    "legacy_unlinked": "العملاء القدامى المعلقون",
+    "upload_csv": "رفع ملف CSV/Excel",
+    "upload_hint": "الصيغ المقبولة: .csv, .xlsx, .xls. الأعمدة: full_name, phone, email, past_membership, membership_start, membership_end, total_spent",
+    "import_success": "تم استيراد {{count}} سجل بنجاح.",
+    "client_detail": "تفاصيل العميل",
+    "adjust_coins": "تعديل عملات العافية",
+    "subscription_status": "حالة الاشتراك"
+  },
+  "whatsapp": {
+    "inquire_template": "مرحباً! أنا {{name}}، أرغب في الاستفسار عن برنامج \"{{service}}\" في ميدويل."
+  },
+  "errors": {
+    "not_found": "المورد غير موجود.",
+    "unauthorized": "يرجى تسجيل الدخول للمتابعة.",
+    "forbidden": "ليس لديك الصلاحية.",
+    "validation_error": "يرجى التحقق من المدخلات.",
+    "server_error": "حدث خطأ. يرجى المحاولة مرة أخرى.",
+    "phone_exists": "رقم الهاتف هذا مسجل بالفعل.",
+    "email_exists": "البريد الإلكتروني مسجل بالفعل.",
+    "invalid_credentials": "رقم الهاتف أو كلمة المرور غير صحيحة."
+  }
+}

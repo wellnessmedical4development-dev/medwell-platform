@@ -1,0 +1,6 @@
+{
+  "site": { "title": "MedWell — 高端医疗健康", "tagline": "科学遇见宁静之处" },
+  "nav": { "home": "首页", "services": "服务", "portal": "客户门户", "admin": "管理后台", "lang_switch": "语言" },
+  "auth": { "login": "登录", "register": "注册", "phone": "电话号码", "password": "密码" },
+  "whatsapp": { "inquire_template": "您好！我是{{name}}，我想咨询MedWell的\"{{service}}\"项目。" }
+}

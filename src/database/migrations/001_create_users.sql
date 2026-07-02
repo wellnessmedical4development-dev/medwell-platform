@@ -1,0 +1,28 @@
+-- 001_create_users.sql
+CREATE TABLE IF NOT EXISTS users (
+  id                CHAR(36) PRIMARY KEY,
+  unique_id         VARCHAR(20) UNIQUE NOT NULL,
+  role              ENUM('admin','client') NOT NULL DEFAULT 'client',
+  first_name        VARCHAR(100) NOT NULL,
+  last_name         VARCHAR(100) NOT NULL,
+  email             VARCHAR(255) UNIQUE,
+  phone             VARCHAR(20) UNIQUE NOT NULL,
+  password_hash     VARCHAR(255) NOT NULL,
+  avatar_url        TEXT,
+  gender            ENUM('male','female','other'),
+  date_of_birth     DATE,
+  preferred_lang    VARCHAR(5) NOT NULL DEFAULT 'en',
+  wellness_coin_balance DECIMAL(12,2) NOT NULL DEFAULT 0.00,
+  subscription_status   ENUM('active','expired','cancelled') NOT NULL DEFAULT 'expired',
+  total_paid        DECIMAL(12,2) NOT NULL DEFAULT 0.00,
+  amount_remaining  DECIMAL(12,2) NOT NULL DEFAULT 0.00,
+  legacy_client_id  CHAR(36),
+  is_active         BOOLEAN NOT NULL DEFAULT TRUE,
+  last_login_at     TIMESTAMP NULL,
+  created_at        TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  updated_at        TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  INDEX idx_users_phone (phone),
+  INDEX idx_users_email (email),
+  INDEX idx_users_subscription (subscription_status),
+  INDEX idx_users_legacy (legacy_client_id)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;

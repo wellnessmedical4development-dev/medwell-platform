@@ -1,0 +1,26 @@
+-- 008_create_appointments.sql
+CREATE TABLE IF NOT EXISTS appointments (
+  id                CHAR(36) PRIMARY KEY,
+  user_id           CHAR(36),
+  prospect_id       CHAR(36),
+  service_id        CHAR(36),
+  prospect_name     VARCHAR(200) NOT NULL,
+  prospect_phone    VARCHAR(20) NOT NULL,
+  prospect_email    VARCHAR(255),
+  interested_program VARCHAR(255),
+  status            ENUM('pending','confirmed','completed','cancelled') NOT NULL DEFAULT 'pending',
+  n8n_workflow_id   VARCHAR(100),
+  n8n_execution_id  VARCHAR(100),
+  raw_payload       JSON,
+  scheduled_at      TIMESTAMP NULL,
+  confirmed_at      TIMESTAMP NULL,
+  notes             TEXT,
+  created_at        TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  updated_at        TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  INDEX idx_appointments_phone (prospect_phone),
+  INDEX idx_appointments_status (status),
+  INDEX idx_appointments_user (user_id),
+  FOREIGN KEY (user_id) REFERENCES users(id),
+  FOREIGN KEY (prospect_id) REFERENCES prospects(id),
+  FOREIGN KEY (service_id) REFERENCES services(id)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
