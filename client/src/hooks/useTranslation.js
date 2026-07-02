@@ -19,7 +19,7 @@ export default function useTranslation() {
       if (value && typeof value === 'object') value = value[key];
       else return path;
     }
-    if (typeof value !== 'string') return path;
+    if (typeof value !== 'string') return value;
     return value.replace(/\{\{(\w+)\}\}/g, (_, key) => params[key] || `{{${key}}}`);
   };
 
