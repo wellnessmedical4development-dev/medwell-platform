@@ -71,6 +71,10 @@ app.use((req, res, next) => {
   next();
 });
 
+app.get('/', (_req, res) => {
+  res.json({ name: 'MedWell API', version: '1.0.0', status: 'running' });
+});
+
 app.get('/api/health', (_req, res) => {
   res.json({ status: 'ok', timestamp: new Date().toISOString() });
 });
