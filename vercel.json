@@ -1,6 +1,6 @@
 {
-  "buildCommand": "echo 'no-build'",
   "installCommand": "npm install",
+  "outputDirectory": "public",
   "routes": [
     { "src": "/(.*)", "dest": "api/index.js" }
   ]
