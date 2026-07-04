@@ -69,7 +69,7 @@
   "contact_section": {
     "title": "Notre Emplacement & Contact",
     "maps_button": "Nous situer sur Google Maps",
-    "phone": "Téléphone",
+    "phone": "WhatsApp",
     "address_label": "Adresse",
     "address_value": "Villa Mernissi, Bella Vista, à côté de Malabata Mall, en face Tanja Balia - Tanger.",
     "instagram_clinic": "Instagram de la Clinique",
@@ -450,6 +450,16 @@
         "desc": "Rechargez votre corps et votre esprit dans notre SPA de luxe et authentique hammam marocain. Alliant traditions séculaires et techniques modernes, notre expérience SPA à Tanger offre l'évasion ultime du stress quotidien."
       }
     ]
+  },
+  "reviews": {
+    "badge": "Témoignages",
+    "title": "Résultats & Conseils d'Experts",
+    "subtitle": "Découvrez les transformations de nos patients et les conseils de nos experts médicaux.",
+    "before_after_title": "Avant & Après",
+    "before_after_desc": "Voyez les vraies transformations accomplies par nos patients grâce à nos programmes bien-être.",
+    "doctor_talks_title": "Nos Experts Parlent",
+    "doctor_talks_desc": "Conseils et explications du Dr. Mernissi et de notre équipe bien-être.",
+    "video_placeholder": "Vidéo bientôt disponible"
   },
   "faq": {
     "badge": "FAQ",

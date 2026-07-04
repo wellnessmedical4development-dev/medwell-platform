@@ -10,6 +10,7 @@ import CTASection from './CTASection';
 import AppSection from './DemoSection';
 import Footer from './Footer';
 import ScrollToTop from './ScrollToTop';
+import ReviewsSection from './ReviewsSection';
 import ScrollProgress from '../ui/ScrollProgress';
 import useTranslation from '../../hooks/useTranslation';
 
@@ -33,6 +34,7 @@ export default function LandingPage() {
       <BenefitsSection />
       <FAQSection />
       <AboutSection />
+      <ReviewsSection />
       <CTASection />
       <AppSection />
       <Footer />
