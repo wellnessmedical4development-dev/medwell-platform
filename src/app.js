@@ -147,11 +147,14 @@ app.use((req, res) => {
 });
 
 app.use((err, _req, res, _next) => {
-  console.error('Unhandled error:', err);
+  if (err.type === 'entity.parse.failed') {
+    return res.status(400).json({ error: 'Invalid JSON in request body' });
+  }
   if (err.name === 'MulterError') {
     return res.status(400).json({ error: `Upload error: ${err.message}` });
   }
-  res.status(500).json({ error: 'Internal server error' });
+  console.error('Unhandled error:', err);
+  res.status(err.status || 500).json({ error: 'Internal server error' });
 });
 
 module.exports = app;
