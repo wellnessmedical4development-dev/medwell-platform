@@ -5,27 +5,19 @@ import useTranslation from '../../hooks/useTranslation';
 const VIDEOS = {
   doctorTalk: {
     src: '/videos/doctor_talk.mp4',
-    poster: '/mernissi.png',
     caption: { name: 'Dr. Mernissi', specialty: 'Médecine Esthétique & Bien-être' },
-    aspect: 'aspect-[21/9] lg:aspect-[21/9]',
   },
   case1: {
     src: '/videos/video_1.mp4',
-    poster: '/image_islim.png',
     caption: { result: 'Perte de 15 kg', service: 'Programme I-SLIM' },
-    aspect: 'aspect-[3/4]',
   },
   case2: {
     src: '/videos/video_2.mp4',
-    poster: '/image_beauty.jpg',
     caption: { result: 'Rajeunissement 10 ans', service: 'Médecine Esthétique' },
-    aspect: 'aspect-video',
   },
   case3: {
     src: '/videos/video_3.mp4',
-    poster: '/spa-hammam.jpg',
     caption: { result: 'Détente profonde', service: 'SPA & Hammam' },
-    aspect: 'aspect-[4/5]',
   },
 };
 
@@ -55,8 +47,25 @@ function useLazyLoad(rootMargin = '300px') {
 function LazyVideo({ video, index }) {
   const [ref, isInView] = useLazyLoad('300px');
   const [hasError, setHasError] = useState(false);
+  const [isPlaying, setIsPlaying] = useState(false);
+  const videoRef = useRef(null);
 
   const handleError = useCallback(() => setHasError(true), []);
+
+  const handlePlay = useCallback(() => {
+    if (videoRef.current) {
+      videoRef.current.play();
+      setIsPlaying(true);
+    }
+  }, []);
+
+  const handlePause = useCallback(() => {
+    setIsPlaying(false);
+  }, []);
+
+  const handleVideoPlay = useCallback(() => {
+    setIsPlaying(true);
+  }, []);
 
   return (
     <div
@@ -67,39 +76,39 @@ function LazyVideo({ video, index }) {
           : 'shadow-[0_0_15px_rgba(197,157,93,0.05)] hover:shadow-[0_0_35px_rgba(197,157,93,0.15)]'
         }`}
     >
-      <div className={`relative w-full ${video.aspect}`}>
-        {isInView && !hasError ? (
-          <video
-            src={video.src}
-            poster={video.poster}
-            preload="none"
-            controls
-            playsInline
-            muted
-            className="absolute inset-0 w-full h-full object-cover"
-            onError={handleError}
-          />
-        ) : (
-          <img
-            src={video.poster}
-            alt=""
-            loading="lazy"
-            className="absolute inset-0 w-full h-full object-cover"
-          />
-        )}
+      {isInView && !hasError ? (
+        <video
+          ref={videoRef}
+          src={video.src}
+          preload="metadata"
+          controls
+          playsInline
+          muted
+          className="w-full h-auto block"
+          onError={handleError}
+          onPlay={handleVideoPlay}
+          onPause={handlePause}
+        />
+      ) : (
+        <div className="w-full bg-dark-800" style={{ aspectRatio: '16/9' }} />
+      )}
 
-        <div className="absolute inset-0 flex items-center justify-center">
+      {!isPlaying && (
+        <div
+          className="absolute inset-0 flex items-center justify-center cursor-pointer z-10"
+          onClick={handlePlay}
+        >
           <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-full bg-[#C59D5D]/20 border border-[#C59D5D]/30 flex items-center justify-center group-hover:bg-[#C59D5D]/30 group-hover:scale-110 transition-all duration-300 backdrop-blur-sm">
             <svg className="w-6 h-6 sm:w-7 sm:h-7 text-white ml-0.5" fill="currentColor" viewBox="0 0 24 24">
               <path d="M8 5v14l11-7z" />
             </svg>
           </div>
         </div>
+      )}
 
-        <div className="absolute inset-0 bg-gradient-to-t from-[#1A1A1A]/90 via-[#1A1A1A]/20 to-transparent pointer-events-none" />
-      </div>
+      <div className="absolute inset-0 bg-gradient-to-t from-[#1A1A1A]/90 via-[#1A1A1A]/20 to-transparent pointer-events-none z-[1]" />
 
-      <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-5 pointer-events-none">
+      <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-5 pointer-events-none z-[1]">
         {'name' in video.caption ? (
           <div>
             <p className="text-ivory-50 font-bold text-sm sm:text-base">{video.caption.name}</p>

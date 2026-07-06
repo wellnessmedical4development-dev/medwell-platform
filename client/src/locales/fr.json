@@ -525,5 +525,35 @@
     "preorder_coins": "Gagnez des Wellness Coins",
     "preorder_learn": "À Propos de l'App",
     "preorder_app_desc": "Gérez vos abonnements, rendez-vous, carte de fidélité et wellness coins — le tout depuis un seul endroit. Relevez des défis, gagnez des récompenses et suivez votre parcours bien-être."
+  },
+  "team": {
+    "title": "Notre Équipe",
+    "subtitle": "Des professionnels dédiés à votre bien-être",
+    "members": [
+      {
+        "name": "Dr. Mehdi Mernissi",
+        "role": "Médecin généraliste & Médecine préventive",
+        "description": "Plus de 15 ans d'expérience en médecine préventive et esthétique. Fondateur du centre Medical Wellness, le Dr. Mernissi allie expertise médicale et approche holistique pour offrir des soins personnalisés à chaque patient."
+      },
+      {
+        "name": "Sophie Laurent",
+        "role": "Kinésithérapeute & Réadaptation",
+        "description": "Spécialiste en kinésithérapie et rééducation fonctionnelle, Sophie accompagne ses patients vers une récupération optimale grâce à des techniques manuelles et des programmes d'exercices sur mesure."
+      },
+      {
+        "name": "Yasmine El Amrani",
+        "role": "Nutritionniste & Diététique",
+        "description": "Diplômée en nutrition clinique, Yasmine élabore des plans alimentaires personnalisés pour aider ses clients à atteindre leurs objectifs de santé, perte de poids et bien-être général."
+      }
+    ]
+  },
+  "location": {
+    "title": "Nous Trouver",
+    "subtitle": "Au cœur de Tanger Malabata",
+    "address": "47, Avenue Mohammed VI, Malabata, Tanger, Maroc",
+    "phone": "+212 5 39 33 33 33",
+    "email": "contact@medical-wellness.ma",
+    "hours": "Lun–Sam : 9h00 – 20h00",
+    "button": "Obtenir l'itinéraire"
   }
 }

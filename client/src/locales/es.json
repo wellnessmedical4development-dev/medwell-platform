@@ -516,5 +516,35 @@
     "preorder_coins": "Gana Wellness Coins",
     "preorder_learn": "Sobre la App",
     "preorder_app_desc": "Gestiona tus suscripciones, citas, tarjeta de fidelidad y wellness coins — todo desde un solo lugar. Desafía a tus amigos, gana recompensas y sigue tu viaje de bienestar."
+  },
+  "team": {
+    "title": "Nuestro Equipo",
+    "subtitle": "Profesionales dedicados a tu bienestar",
+    "members": [
+      {
+        "name": "Dr. Mehdi Mernissi",
+        "role": "Médico General & Medicina Preventiva",
+        "description": "Con más de 15 años de experiencia en medicina preventiva y estética, el Dr. Mernissi fundó el centro Medical Wellness combinando experiencia médica con un enfoque holístico para ofrecer atención personalizada a cada paciente."
+      },
+      {
+        "name": "Sophie Laurent",
+        "role": "Fisioterapeuta & Rehabilitación",
+        "description": "Especialista en fisioterapia y rehabilitación funcional, Sophie guía a sus pacientes hacia una recuperación óptima mediante técnicas manuales y programas de ejercicios personalizados."
+      },
+      {
+        "name": "Yasmine El Amrani",
+        "role": "Nutricionista & Dietética",
+        "description": "Graduada en nutrición clínica, Yasmine crea planes de alimentación personalizados para ayudar a sus clientes a alcanzar sus objetivos de salud, pérdida de peso y bienestar general."
+      }
+    ]
+  },
+  "location": {
+    "title": "Encuéntranos",
+    "subtitle": "En el corazón de Tánger Malabata",
+    "address": "47, Avenida Mohammed VI, Malabata, Tánger, Marruecos",
+    "phone": "+212 5 39 33 33 33",
+    "email": "contact@medical-wellness.ma",
+    "hours": "Lun–Sáb: 9:00 – 20:00",
+    "button": "Obtener indicaciones"
   }
 }

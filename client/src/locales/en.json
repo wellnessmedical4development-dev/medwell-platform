@@ -525,5 +525,35 @@
     "preorder_coins": "Earn Wellness Coins",
     "preorder_learn": "About the App",
     "preorder_app_desc": "Manage your subscriptions, appointments, loyalty card, and wellness coins — all from one place. Challenge friends, earn rewards, and track your wellness journey."
+  },
+  "team": {
+    "title": "Our Team",
+    "subtitle": "Professionals dedicated to your well-being",
+    "members": [
+      {
+        "name": "Dr. Mehdi Mernissi",
+        "role": "General Practitioner & Preventive Medicine",
+        "description": "With over 15 years of experience in preventive and aesthetic medicine, Dr. Mernissi founded the Medical Wellness center to combine medical expertise with a holistic approach, offering personalized care to every patient."
+      },
+      {
+        "name": "Sophie Laurent",
+        "role": "Physiotherapist & Rehabilitation",
+        "description": "A specialist in physiotherapy and functional rehabilitation, Sophie guides her patients toward optimal recovery through manual techniques and customized exercise programs."
+      },
+      {
+        "name": "Yasmine El Amrani",
+        "role": "Nutritionist & Dietetics",
+        "description": "Graduated in clinical nutrition, Yasmine creates personalized meal plans to help her clients achieve their health, weight loss, and overall wellness goals."
+      }
+    ]
+  },
+  "location": {
+    "title": "Find Us",
+    "subtitle": "In the heart of Tangier Malabata",
+    "address": "47, Avenue Mohammed VI, Malabata, Tangier, Morocco",
+    "phone": "+212 5 39 33 33 33",
+    "email": "contact@medical-wellness.ma",
+    "hours": "Mon–Sat: 9:00 AM – 8:00 PM",
+    "button": "Get directions"
   }
 }
