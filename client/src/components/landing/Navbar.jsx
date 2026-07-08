@@ -1,8 +1,10 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { Search } from 'lucide-react';
 import { useTheme } from '../../contexts/ThemeContext';
 import useTranslation from '../../hooks/useTranslation';
 import { Link } from 'react-router-dom';
+import { servicesAPI } from '../../services/api';
 
 const LANG_OPTIONS = [
   { code: 'en', label: 'EN' },
@@ -17,6 +19,57 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [langOpen, setLangOpen] = useState(false);
+  const [search, setSearch] = useState('');
+  const [allServices, setAllServices] = useState([]);
+  const [searchResults, setSearchResults] = useState([]);
+  const [showSearch, setShowSearch] = useState(false);
+  const [searchOpen, setSearchOpen] = useState(false);
+  const searchRef = useRef(null);
+
+  useEffect(() => {
+    servicesAPI.list().then(({ data }) => setAllServices(data.services || [])).catch(() => {});
+  }, []);
+
+  useEffect(() => {
+    if (!search.trim()) { setSearchResults([]); return; }
+    const q = search.toLowerCase();
+    const results = allServices.filter(s => {
+      const title = (() => {
+        const t = s.title;
+        if (typeof t === 'string') { try { return JSON.parse(t)[lang] || JSON.parse(t).en || t; } catch { return t; } }
+        if (typeof t === 'object') return t[lang] || t.en || s.code;
+        return s.code;
+      })();
+      return title.toLowerCase().includes(q) || (s.code || '').toLowerCase().includes(q);
+    });
+    setSearchResults(results);
+    setShowSearch(results.length > 0);
+  }, [search, allServices, lang]);
+
+  useEffect(() => {
+    const close = (e) => { if (searchRef.current && !searchRef.current.contains(e.target)) { setShowSearch(false); setSearchOpen(false); } };
+    document.addEventListener('mousedown', close);
+    return () => document.removeEventListener('mousedown', close);
+  }, []);
+
+  const scrollToServices = () => {
+    document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' });
+    setSearch('');
+    setShowSearch(false);
+  };
+
+  const openWhatsApp = (title) => {
+    const msg = {
+      en: (s) => `Hello, I am interested in the "${s}" program at Medical Wellness.`,
+      fr: (s) => `Bonjour, je suis intéressé(e) par le programme "${s}" chez Medical Wellness.`,
+      es: (s) => `Hola, estoy interesado(a) en el programa "${s}" en Medical Wellness.`,
+      ar: (s) => `مرحباً، أنا مهتم(ة) ببرنامج "${s}" في ميديكال ويلنس.`,
+    };
+    const fn = msg[lang] || msg.en;
+    window.open(`https://wa.me/212666993030?text=${encodeURIComponent(fn(title))}`, '_blank');
+    setSearch('');
+    setShowSearch(false);
+  };
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 40);
@@ -64,6 +117,69 @@ export default function Navbar() {
                 {t(`nav.${link.key}`)}
               </a>
             ))}
+          </div>
+
+          <div ref={searchRef} className="relative hidden lg:block">
+            <button
+              onClick={() => setSearchOpen(!searchOpen)}
+              className="flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-dark-200/30 dark:border-ivory-200/20 text-xs font-semibold text-dark-600 dark:text-ivory-200 hover:border-champagne-400 transition-colors tracking-wider uppercase"
+            >
+              <Search className="w-3.5 h-3.5" />
+              <span>{t('services.search_placeholder')}</span>
+            </button>
+            {searchOpen && (
+              <div style={{
+                position: 'absolute', top: '100%', right: 0, marginTop: '0.5rem', width: '320px',
+                background: 'var(--bg-card, #fff)', border: '1px solid var(--border-color, #e5e7eb)',
+                borderRadius: '12px', boxShadow: '0 12px 40px rgba(0,0,0,0.15)', overflow: 'hidden', zIndex: 100,
+              }}>
+                <div style={{ padding: '0.75rem' }}>
+                  <div className="relative">
+                    <Search className="absolute left-3 top-1/2 -translate-y-1/2" style={{ width: '14px', height: '14px', color: '#9ca3af' }} />
+                    <input
+                      autoFocus
+                      className="w-full pl-9 pr-3 py-2.5 rounded-lg border border-ivory-200 dark:border-dark-700 bg-white dark:bg-dark-800 text-sm focus:outline-none focus:border-champagne-400"
+                      placeholder={t('services.search_placeholder')}
+                      value={search}
+                      onChange={(e) => setSearch(e.target.value)}
+                    />
+                  </div>
+                </div>
+                {showSearch && (
+                  <div style={{ maxHeight: '240px', overflowY: 'auto', borderTop: '1px solid var(--border-color, #e5e7eb)' }}>
+                    {searchResults.slice(0, 6).map((svc) => {
+                      const title = (() => {
+                        const t = svc.title;
+                        if (typeof t === 'string') { try { return JSON.parse(t)[lang] || JSON.parse(t).en || t; } catch { return t; } }
+                        if (typeof t === 'object') return t[lang] || t.en || svc.code;
+                        return svc.code;
+                      })();
+                      return (
+                        <button
+                          key={svc.id}
+                          onClick={() => { openWhatsApp(title); }}
+                          style={{
+                            display: 'block', width: '100%', textAlign: 'left', padding: '0.6rem 0.75rem',
+                            fontSize: '0.8rem', border: 'none', background: 'transparent', cursor: 'pointer',
+                            color: 'var(--text-primary, #111)', borderBottom: '1px solid var(--border-color, #e5e7eb)',
+                          }}
+                          onMouseEnter={(e) => e.currentTarget.style.background = '#f5f5f4'}
+                          onMouseLeave={(e) => e.currentTarget.style.background = 'transparent'}
+                        >
+                          {title}
+                          <span style={{ fontSize: '0.65rem', color: '#9ca3af', marginLeft: '0.5rem' }}>{svc.code}</span>
+                        </button>
+                      );
+                    })}
+                  </div>
+                )}
+                {search.trim() && !showSearch && (
+                  <div style={{ padding: '1rem', textAlign: 'center', fontSize: '0.8rem', color: '#9ca3af', borderTop: '1px solid var(--border-color, #e5e7eb)' }}>
+                    {t('common.no_results')}
+                  </div>
+                )}
+              </div>
+            )}
           </div>
 
           <div className="flex items-center gap-1.5 xs:gap-2 sm:gap-3">
