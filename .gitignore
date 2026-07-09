@@ -8,4 +8,4 @@ dist/
 .vercel
 *.zip
 *.exe
-client/public/videos/
+
