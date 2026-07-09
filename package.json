@@ -9,7 +9,7 @@
     "migrate": "node src/database/migrate.js",
     "lint": "eslint src/",
     "seed": "node src/database/seeds/admin_user.js",
-    "build": "npm --prefix client run build && cp -r client/dist/ dist/"
+    "build": "npm --prefix client run build"
   },
   "dependencies": {
     "@capacitor/android": "^8.4.1",

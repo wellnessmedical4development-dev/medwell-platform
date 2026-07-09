@@ -2,6 +2,7 @@ import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 
 export default defineConfig({
+  assetsInclude: ['**/*.MOV', '**/*.mov', '**/*.mp4'],
   plugins: [
     react(),
     {

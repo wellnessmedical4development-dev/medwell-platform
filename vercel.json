@@ -1,7 +1,7 @@
 {
   "installCommand": "npm install && npm --prefix client install",
-  "buildCommand": "npm run build",
-  "outputDirectory": "dist",
+  "buildCommand": "npm --prefix client run build",
+  "outputDirectory": "client/dist",
   "routes": [
     { "src": "/api/(.*)", "dest": "api/index.js" },
     { "handle": "filesystem" },
