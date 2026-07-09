@@ -8,9 +8,9 @@ const MEDIA_FILES = {
   'KINESITHERAPIE': { images: [], videos: [] },
   'I-SLIM': { images: [], videos: [] },
   'AMINCISSEMENT': { images: [], videos: [] },
-  'FITNESS-PROG': { images: [], videos: ['/videos/fitness-see-more.MOV'] },
+  'FITNESS-PROG': { images: [], videos: ['/videos/fitness-see-more.mp4'] },
   'ESTHETIQUE': { images: [], videos: [] },
-  'SPA-HAMMAM': { images: [], videos: ['/videos/spa-see-more.MOV'] },
+  'SPA-HAMMAM': { images: [], videos: ['/videos/spa-see-more.mp4'] },
   'WELLNESS-ASSESS': { images: [], videos: [] },
 };
 
