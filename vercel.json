@@ -4,7 +4,7 @@
   "outputDirectory": "client/dist",
   "routes": [
     { "src": "/api/(.*)", "dest": "api/index.js" },
-    { "src": "/(.*)\\.(MOV|mov|mp4|webm|ogg)", "dest": "/$1.$2", "headers": { "content-type": "video/quicktime" } },
+    { "src": "/videos/(.*)", "dest": "/videos/$1", "headers": { "content-type": "video/quicktime", "accept-ranges": "bytes", "cache-control": "public, max-age=31536000, immutable" } },
     { "handle": "filesystem" },
     { "src": "/(.*)", "dest": "/index.html" }
   ]
