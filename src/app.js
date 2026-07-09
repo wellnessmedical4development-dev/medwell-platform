@@ -23,6 +23,8 @@ const messageRoutes = require('./routes/messages');
 const appointmentRoutes = require('./routes/appointments');
 const quickRequestRoutes = require('./routes/quickRequests');
 const leadRoutes = require('./routes/leads');
+const chatRoutes = require('./routes/chat');
+const notificationRoutes = require('./routes/notifications');
 
 const app = express();
 
@@ -138,6 +140,8 @@ app.use('/api/v1/messages', messageRoutes);
 app.use('/api/v1/appointments', appointmentRoutes);
 app.use('/api/v1/leads', leadRoutes);
 app.use('/api/v1/quick-requests', quickRequestRoutes);
+app.use('/api/chat', chatRoutes);
+app.use('/api/v1/notifications', notificationRoutes);
 
 app.use((req, res) => {
   if (req.accepts('html') && !req.path.startsWith('/api/')) {

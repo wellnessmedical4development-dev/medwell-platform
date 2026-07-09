@@ -27,6 +27,12 @@
     "days": "días",
     "price": "Inversión",
     "learn_more": "Reservar cita",
+    "see_details": "Ver más detalles",
+    "media_gallery": "Galería Multimedia",
+    "photos": "Fotos",
+    "videos": "Videos",
+    "media_coming_soon": "Galería multimedia próximamente",
+    "media_coming_soon_desc": "Las fotos y videos de este servicio se añadirán próximamente.",
     "browse_title": "Nuestros Programas",
     "browse_subtitle": "Explore y suscríbase a nuestros programas de bienestar",
     "search_placeholder": "Buscar...",
@@ -59,14 +65,21 @@
   },
   "contact_section": {
     "title": "Ubicación y Contacto",
-    "maps_button": "Ubíquenos en Google Maps",
+    "maps_button": "Ubícanos en Google Maps",
     "phone": "WhatsApp",
     "address_label": "Dirección",
-    "address_value": "Villa Mernissi, Bella Vista, à côté de Malabata Mall, en face Tanja Balia - Tanger.",
-    "instagram_clinic": "Instagram de la Clínica",
-    "instagram_doctor": "Instagram del Dr. Mernissi",
-    "facebook_doctor": "Facebook del Dr. Mernissi",
-    "tiktok_clinic": "TikTok Medical Wellness"
+    "address_value": "Villa Mernissi, Bella Vista, al lado de Malabata Mall, frente a Tanja Balia - Tánger.",
+    "instagram_clinic": "Instagram Clínica",
+    "instagram_doctor": "Instagram Dr. Mernissi",
+    "facebook_doctor": "Facebook Dr. Mernissi",
+    "tiktok_clinic": "Medical Wellness TikTok",
+    "form_title": "Envíanos un mensaje",
+    "form_name": "Tu Nombre",
+    "form_email": "Tu Email",
+    "form_phone": "Tu Teléfono",
+    "form_message": "Tu Mensaje",
+    "form_submit": "Enviar mensaje",
+    "form_success": "¡Gracias! Te responderemos pronto."
   },
   "app_section": {
     "badge": "MY WELLNESS",
@@ -100,7 +113,9 @@
     "sign_out": "Cerrar Sesión",
     "dark_mode": "Modo Oscuro",
     "light_mode": "Modo Claro",
-    "language": "Idioma"
+    "language": "Idioma",
+    "search_placeholder": "Buscar programas...",
+    "book_appointment": "Reservar Cita"
   },
   "client": {
     "my_dashboard": "Mi Panel",
@@ -545,6 +560,21 @@
     "phone": "+212 5 39 33 33 33",
     "email": "contact@medical-wellness.ma",
     "hours": "Lun–Sáb: 9:00 – 20:00",
+    "visit_text": "Nuestra clínica está ubicada en el corazón de Malabata, Tánger. Visítenos para una experiencia de bienestar personalizada.",
     "button": "Obtener indicaciones"
+  },
+  "seo": {
+    "home_title": "Medical Wellness — Centro de Bienestar Médico de Lujo en Tánger",
+    "home_desc": "Descubra nuestro centro de bienestar médico de lujo en Tánger. Medicina preventiva, fisioterapia, nutrición, SPA & hammam, I-SLIM, adelgazamiento, fitness.",
+    "services_title": "Programas y Servicios de Bienestar — Medical Wellness Tánger",
+    "services_desc": "Explore nuestros programas de bienestar: medicina preventiva, fisioterapia, nutrición, adelgazamiento, SPA & hammam, fitness, I-SLIM en Tánger.",
+    "about_title": "Sobre Nosotros — Medical Wellness Tánger",
+    "about_desc": "Conozca al Dr. Abdelali Mernissi y nuestro equipo. Descubra nuestro enfoque médico para la salud preventiva y el bienestar integral.",
+    "contact_title": "Contacto y Ubicación — Medical Wellness Tánger",
+    "contact_desc": "Visite nuestro centro de bienestar médico en Malabata, Tánger. Teléfono, WhatsApp, indicaciones GPS y horario de apertura.",
+    "app_title": "App My Wellness — Medical Wellness",
+    "app_desc": "Descargue la aplicación Medical Wellness para gestionar sus suscripciones, citas y programas de bienestar.",
+    "download_title": "Pre-pedido App My Wellness — Medical Wellness",
+    "download_desc": "Sea el primero en obtener la aplicación Medical Wellness. Pre-ordene ahora y reciba bonos exclusivos."
   }
 }

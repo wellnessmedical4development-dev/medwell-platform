@@ -1,10 +1,12 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import { Eye } from 'lucide-react';
 import useTranslation from '../../hooks/useTranslation';
 import { servicesAPI } from '../../services/api';
 import SplitText from '../ui/SplitText';
 import BlurImage from '../ui/BlurImage';
 import RippleButton from '../ui/RippleButton';
+import ServiceMediaModal from '../ui/ServiceMediaModal';
 
 const FALLBACK_SERVICES = [
   {
@@ -40,12 +42,17 @@ const FALLBACK_SERVICES = [
   {
     id: 'spa-hammam', code: 'SPA-HAMMAM',
     title: { en: 'Luxury SPA & Hammam', fr: 'SPA & Hammam', es: 'SPA y Hammam', ar: 'السبا والحمام المغربي' },
-    duration_days: 1, image: '/spa-hammam.jpg',
+    duration_days: 1, image: '/spa-hammam.png',
   },
   {
     id: 'wellness-assess', code: 'WELLNESS-ASSESS',
     title: { en: 'Wellness Assessment', fr: 'Bilan Bien-être', es: 'Evaluación de Bienestar', ar: 'تقييم الصحة' },
     duration_days: 1, image: '/assessment.jpg',
+  },
+  {
+    id: 'piscine', code: 'PISCINE',
+    title: { en: 'Swimming Pool', fr: 'Piscine', es: 'Piscina', ar: 'المسبح' },
+    duration_days: 1, image: '/piscine.png',
   },
 ];
 
@@ -70,6 +77,8 @@ export default function ServicesSection() {
   const { t, lang } = useTranslation();
   const [services, setServices] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [mediaService, setMediaService] = useState(null);
+  const [showMedia, setShowMedia] = useState(false);
   const isRtl = lang === 'ar';
 
   useEffect(() => {
@@ -92,6 +101,17 @@ export default function ServicesSection() {
     fetchServices();
   }, []);
 
+  useEffect(() => {
+    if (loading) return;
+    const hash = window.location.hash.slice(1);
+    if (hash) {
+      setTimeout(() => {
+        const el = document.getElementById(hash);
+        if (el) el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }, 200);
+    }
+  }, [loading]);
+
   const getServiceTitle = (service) => {
     if (typeof service.title === 'string') {
       try { const parsed = JSON.parse(service.title); return parsed[lang] || parsed.en || service.title; }
@@ -107,7 +127,13 @@ export default function ServicesSection() {
     window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${text}`, '_blank');
   };
 
-  if (loading) return null;
+  if (loading) return (
+    <section className="relative py-16 sm:py-24 lg:py-32 xl:py-36 bg-[#FDFBF7] dark:bg-dark-950">
+      <div className="flex items-center justify-center min-h-[200px]">
+        <div className="w-8 h-8 border-2 border-champagne-400/30 border-t-champagne-400 rounded-full animate-spin" />
+      </div>
+    </section>
+  );
   const displayServices = services.length > 0 ? services : FALLBACK_SERVICES;
 
   return (
@@ -144,12 +170,13 @@ export default function ServicesSection() {
             return (
               <motion.div
                 key={service.id || service.code || index}
+                id={service.id || service.code}
                 custom={index}
                 variants={cardVariants}
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true, margin: '-40px' }}
-                className="group relative bg-white dark:bg-dark-800/50 rounded-2xl overflow-hidden border border-ivory-200 dark:border-dark-700 hover:border-champagne-400/40 hover:-translate-y-1 hover:shadow-[0_8px_32px_rgba(212,175,55,0.12)] transition-all duration-500 ease-in-out flex flex-col"
+                className={`group relative bg-white dark:bg-dark-800/50 rounded-2xl overflow-hidden border border-ivory-200 dark:border-dark-700 hover:border-champagne-400/40 hover:-translate-y-1 hover:shadow-[0_8px_32px_rgba(212,175,55,0.12)] transition-all duration-500 ease-in-out flex flex-col ${window.location.hash === `#${service.id || service.code}` ? 'ring-2 ring-champagne-400 shadow-[0_0_24px_rgba(212,175,55,0.3)]' : ''}`}
               >
                 <div className="relative shrink-0 bg-ivory-100 dark:bg-dark-800" style={{ aspectRatio: '16 / 9' }}>
                   <BlurImage src={service.image || service.image_url} alt={title} className="w-full h-full" />
@@ -164,19 +191,35 @@ export default function ServicesSection() {
                     {t('services.learn_more_desc') || 'Découvrez nos formules adaptées à vos besoins.'}
                   </p>
 
-                  <RippleButton
-                    onClick={() => openWhatsApp(title)}
-                    className="group/btn inline-flex items-center justify-center gap-2 w-full px-4 py-3 bg-[#D4AF37] hover:bg-champagne-600 text-dark-900 rounded-xl text-xs font-bold tracking-widest uppercase transition-all duration-300 shadow-[0_4px_16px_rgba(212,175,55,0.2)] mt-auto"
-                  >
-                    <span>{t('services.inquire')}</span>
-                    <svg className="w-3.5 h-3.5 shrink-0 transition-transform duration-300 group-hover/btn:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
-                  </RippleButton>
+                  <div className="flex flex-col gap-2 mt-auto">
+                    <button
+                      onClick={() => { setMediaService(service); setShowMedia(true); }}
+                      className="group/btn inline-flex items-center justify-center gap-2 w-full px-4 py-2.5 border border-[#D4AF37]/40 text-[#D4AF37] hover:bg-champagne-400/10 rounded-xl text-xs font-semibold tracking-widest uppercase transition-all duration-300"
+                    >
+                      <Eye className="w-3.5 h-3.5" />
+                      <span>{t('services.see_details')}</span>
+                    </button>
+                    <RippleButton
+                      onClick={() => openWhatsApp(title)}
+                      className="group/btn inline-flex items-center justify-center gap-2 w-full px-4 py-3 bg-[#D4AF37] hover:bg-champagne-600 text-dark-900 rounded-xl text-xs font-bold tracking-widest uppercase transition-all duration-300 shadow-[0_4px_16px_rgba(212,175,55,0.2)]"
+                    >
+                      <span>{t('services.inquire')}</span>
+                      <svg className="w-3.5 h-3.5 shrink-0 transition-transform duration-300 group-hover/btn:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+                    </RippleButton>
+                  </div>
                 </div>
               </motion.div>
             );
           })}
         </div>
       </div>
+
+      <ServiceMediaModal
+        isOpen={showMedia}
+        onClose={() => setShowMedia(false)}
+        service={mediaService}
+        getTitle={getServiceTitle}
+      />
     </section>
   );
 }

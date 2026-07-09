@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://medicalwellnes.com/sitemap.xml

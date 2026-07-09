@@ -3,8 +3,20 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Search } from 'lucide-react';
 import { useTheme } from '../../contexts/ThemeContext';
 import useTranslation from '../../hooks/useTranslation';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { servicesAPI } from '../../services/api';
+
+const FALLBACK_SEARCH = [
+  { id: 'nutrition', code: 'NUTRITION-ACCOMP', title: { en: 'Nutrition & Guidance', fr: 'Nutrition & Accompagnement', es: 'Nutrición y Acompañamiento', ar: 'التغذية والمرافقة' }, keywords: { en: ['diet','food','meal','health','wellness','eating','dietary','alimentation'], fr: ['régime','alimentation','repas','santé','diététique','manger'], es: ['dieta','alimentación','comida','salud','nutrición'], ar: ['نظام غذائي','طعام','صحة','تغذية'] } },
+  { id: 'kine', code: 'KINESITHERAPIE', title: { en: 'Physiotherapy & Recovery', fr: 'Kinésithérapie', es: 'Fisioterapia', ar: 'العلاج الطبيعي' }, keywords: { en: ['massage','rehab','rehabilitation','physical therapy','recovery','physio','back pain','remise en forme'], fr: ['massage','rééducation','réadaptation','physiothérapie','dos','douleur','remise en forme'], es: ['masaje','rehabilitación','fisio','dolor','recuperación'], ar: ['تدليك','علاج طبيعي','تأهيل','علاج فيزيائي'] } },
+  { id: 'islim', code: 'I-SLIM', title: { en: 'I-SLIM Electro-Stimulation', fr: 'I-SLIM Électro-stimulation', es: 'I-SLIM Electroestimulación', ar: 'تحفيز العضلات الكهربائي I-SLIM' }, keywords: { en: ['electro','muscle','stimulation','ems','slimming','toning','electric'], fr: ['électro','muscle','stimulation','ems','amincissant','tonification','électrique'], es: ['electro','músculo','estimulación','adelgazante','tonificación'], ar: ['تحفيز','عضلات','تنحيف','كهربائي'] } },
+  { id: 'amincissement', code: 'AMINCISSEMENT', title: { en: 'Slimming & Body Contouring', fr: 'Amincissement & Minceur', es: 'Adelgazamiento y Moldeo', ar: 'التخسيس والتنحيف' }, keywords: { en: ['weight loss','fat','slimming','body shaping','contouring','minceur','lose weight','thin'], fr: ['perte de poids','graisse','minceur','modelage','maigrir'], es: ['pérdida de peso','grasa','adelgazamiento','moldear'], ar: ['تخسيس','وزن','دهون','إنقاص وزن'] } },
+  { id: 'fitness', code: 'FITNESS-PROG', title: { en: 'Fitness', fr: 'Fitness', ar: 'اللياقة البدنية', es: 'Fitness' }, keywords: { en: ['gym','workout','exercise','training','cardio','strength','club','sport','condition physique','musculation'], fr: ['salle de sport','exercice','entraînement','cardio','force','club','sport','condition physique','musculation'], es: ['gimnasio','ejercicio','entrenamiento','cardio','fuerza','club','deporte'], ar: ['نادي رياضي','تمرين','لياقة','رياضة','جيم'] } },
+  { id: 'esthetique', code: 'ESTHETIQUE', title: { en: 'Aesthetics & Anti-Aging', fr: 'Esthétique', es: 'Estética', ar: 'العناية بالجمال' }, keywords: { en: ['beauty','skincare','facial','anti-aging','rejuvenation','aesthetic','skin','young'], fr: ['beauté','soin visage','anti-âge','rajeunissement','esthétique','peau'], es: ['belleza','cuidado facial','anti-envejecimiento','rejuvenecimiento','piel'], ar: ['جمال','عناية بالبشرة','مضاد للشيخوخة','بشرة'] } },
+  { id: 'spa-hammam', code: 'SPA-HAMMAM', title: { en: 'Luxury SPA & Hammam', fr: 'SPA & Hammam', es: 'SPA y Hammam', ar: 'السبا والحمام المغربي' }, keywords: { en: ['spa','hammam','massage','relaxation','sauna','steam','jacuzzi','wellness','pool'], fr: ['spa','hammam','massage','relaxation','sauna','vapeur','jacuzzi','bien-être'], es: ['spa','hammam','masaje','relajación','sauna','vapor','bienestar'], ar: ['سبا','حمام','مساج','استرخاء','ساونا','جاكوزي'] } },
+  { id: 'wellness-assess', code: 'WELLNESS-ASSESS', title: { en: 'Wellness Assessment', fr: 'Bilan Bien-être', es: 'Evaluación de Bienestar', ar: 'تقييم الصحة' }, keywords: { en: ['checkup','evaluation','bilan','assessment','health check','diagnostic','test','exam'], fr: ['bilan','évaluation','check-up','diagnostic','santé','examen'], es: ['evaluación','chequeo','diagnóstico','salud','examen'], ar: ['تقييم','فحص','تشخيص','كشف'] } },
+  { id: 'piscine', code: 'PISCINE', title: { en: 'Swimming Pool', fr: 'Piscine', es: 'Piscina', ar: 'المسبح' }, keywords: { en: ['swim','pool','swimming','water','piscine','natation','lap'], fr: ['piscine','natation','nager','eau','baignade'], es: ['piscina','natación','nadar','agua'], ar: ['مسبح','سباحة','ماء','بركة'] } },
+];
 
 const LANG_OPTIONS = [
   { code: 'en', label: 'EN' },
@@ -27,11 +39,11 @@ export default function Navbar() {
   const searchRef = useRef(null);
 
   useEffect(() => {
-    servicesAPI.list().then(({ data }) => setAllServices(data.services || [])).catch(() => {});
+    servicesAPI.list().then(({ data }) => setAllServices(data.services || FALLBACK_SEARCH)).catch(() => setAllServices(FALLBACK_SEARCH));
   }, []);
 
   useEffect(() => {
-    if (!search.trim()) { setSearchResults([]); return; }
+    if (!search.trim()) { setSearchResults([]); setShowSearch(false); return; }
     const q = search.toLowerCase();
     const results = allServices.filter(s => {
       const title = (() => {
@@ -40,7 +52,15 @@ export default function Navbar() {
         if (typeof t === 'object') return t[lang] || t.en || s.code;
         return s.code;
       })();
-      return title.toLowerCase().includes(q) || (s.code || '').toLowerCase().includes(q);
+      if (title.toLowerCase().includes(q) || (s.code || '').toLowerCase().includes(q)) return true;
+      const kw = s.keywords;
+      if (kw) {
+        const langKw = kw[lang] || kw.en || [];
+        const enKw = kw.en || [];
+        const allKw = [...new Set([...langKw, ...enKw])];
+        if (allKw.some(k => k.toLowerCase().includes(q))) return true;
+      }
+      return false;
     });
     setSearchResults(results);
     setShowSearch(results.length > 0);
@@ -58,17 +78,13 @@ export default function Navbar() {
     setShowSearch(false);
   };
 
-  const openWhatsApp = (title) => {
-    const msg = {
-      en: (s) => `Hello, I am interested in the "${s}" program at Medical Wellness.`,
-      fr: (s) => `Bonjour, je suis intéressé(e) par le programme "${s}" chez Medical Wellness.`,
-      es: (s) => `Hola, estoy interesado(a) en el programa "${s}" en Medical Wellness.`,
-      ar: (s) => `مرحباً، أنا مهتم(ة) ببرنامج "${s}" في ميديكال ويلنس.`,
-    };
-    const fn = msg[lang] || msg.en;
-    window.open(`https://wa.me/212666993030?text=${encodeURIComponent(fn(title))}`, '_blank');
+  const nav = useNavigate();
+
+  const navigateToService = (serviceId) => {
     setSearch('');
+    setSearchOpen(false);
     setShowSearch(false);
+    nav(`/services#${serviceId}`);
   };
 
   useEffect(() => {
@@ -78,13 +94,14 @@ export default function Navbar() {
   }, []);
 
   const currentLang = LANG_OPTIONS.find((l) => l.code === lang) || LANG_OPTIONS[0];
+  const location = useLocation();
 
   const navLinks = [
-    { key: 'home', href: '#home' },
-    { key: 'services', href: '#services' },
-    { key: 'about', href: '#about' },
-    { key: 'contact', href: '#contact' },
-    { key: 'app', href: '#app' },
+    { key: 'home', path: '/' },
+    { key: 'services', path: '/services' },
+    { key: 'about', path: '/about' },
+    { key: 'contact', path: '/contact' },
+    { key: 'app', path: '/app' },
   ];
 
   return (
@@ -92,6 +109,7 @@ export default function Navbar() {
       initial={{ y: -80 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.6, ease: 'easeOut' }}
+      style={{ paddingTop: 'env(safe-area-inset-top)' }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         scrolled
           ? 'bg-white/90 dark:bg-dark-950/90 backdrop-blur-xl shadow-[0_1px_0_rgba(212,175,55,0.1)]'
@@ -101,22 +119,32 @@ export default function Navbar() {
     >
       <div className="w-full mx-auto px-4 xs:px-5 sm:px-8 lg:px-12 xl:px-16" style={{ maxWidth: '90rem' }}>
         <div className="flex items-center justify-between h-14 xs:h-16 sm:h-20">
-          <a href="#home" className="flex items-center gap-2 shrink-0">
+          <Link to="/" className="flex items-center gap-2 shrink-0">
             <span className="font-display text-xl xs:text-xl sm:text-2xl font-bold text-champagne-400 tracking-[0.15em]">
               Medical Wellness
             </span>
-          </a>
+          </Link>
 
           <div className="hidden lg:flex items-center gap-6 xl:gap-10">
-            {navLinks.map((link) => (
-              <a
-                key={link.key}
-                href={link.href}
-                className="text-xs xl:text-sm font-medium text-dark-600 dark:text-ivory-200/70 hover:text-champagne-500 dark:hover:text-champagne-400 transition-colors duration-300 tracking-wider uppercase whitespace-nowrap"
-              >
-                {t(`nav.${link.key}`)}
-              </a>
-            ))}
+            {navLinks.map((link) => {
+              const isActive = location.pathname === link.path;
+              return (
+                <Link
+                  key={link.key}
+                  to={link.path}
+                  className={`relative text-xs xl:text-sm font-medium tracking-wider uppercase whitespace-nowrap transition-colors duration-300 ${
+                    isActive
+                      ? 'text-champagne-500 dark:text-champagne-400'
+                      : 'text-dark-600 dark:text-ivory-200/70 hover:text-champagne-500 dark:hover:text-champagne-400'
+                  }`}
+                >
+                  {t(`nav.${link.key}`)}
+                  {isActive && (
+                    <span className="absolute -bottom-1 left-0 right-0 h-0.5 bg-champagne-500 dark:bg-champagne-400 rounded-full" />
+                  )}
+                </Link>
+              );
+            })}
           </div>
 
           <div ref={searchRef} className="relative hidden lg:block">
@@ -157,7 +185,7 @@ export default function Navbar() {
                       return (
                         <button
                           key={svc.id}
-                          onClick={() => { openWhatsApp(title); }}
+                          onClick={() => { navigateToService(svc.id || svc.code); }}
                           style={{
                             display: 'block', width: '100%', textAlign: 'left', padding: '0.6rem 0.75rem',
                             fontSize: '0.8rem', border: 'none', background: 'transparent', cursor: 'pointer',
@@ -265,16 +293,59 @@ export default function Navbar() {
             className="lg:hidden bg-white/95 dark:bg-dark-950/95 backdrop-blur-lg border-t border-ivory-200 dark:border-dark-800 overflow-hidden"
           >
             <div className="px-4 xs:px-5 sm:px-8 py-3 sm:py-4 space-y-1 sm:space-y-2">
-              {navLinks.map((link) => (
-                <a
-                  key={link.key}
-                  href={link.href}
-                  onClick={() => setMobileOpen(false)}
-                  className="block text-sm font-medium text-dark-600 dark:text-ivory-200/70 hover:text-champagne-500 transition-colors tracking-wider uppercase py-2 sm:py-2.5"
-                >
-                  {t(`nav.${link.key}`)}
-                </a>
-              ))}
+              <div className="relative mb-3 sm:mb-4">
+                <Search className="absolute left-3 top-1/2 -translate-y-1/2" style={{ width: '14px', height: '14px', color: '#9ca3af' }} />
+                <input
+                  placeholder={t('services.search_placeholder')}
+                  value={search}
+                  onChange={(e) => setSearch(e.target.value)}
+                  className="w-full pl-9 pr-3 py-2.5 rounded-lg border border-dark-200/30 dark:border-ivory-200/20 bg-transparent text-sm text-dark-900 dark:text-ivory-50 placeholder:text-dark-300 dark:placeholder:text-dark-500 focus:outline-none focus:border-champagne-400 transition-colors"
+                />
+                {search.trim() && searchResults.length > 0 && (
+                  <div className="absolute top-full left-0 right-0 mt-1 bg-white dark:bg-dark-900 border border-dark-200 dark:border-dark-700 rounded-xl shadow-xl overflow-hidden z-50" style={{ maxHeight: '200px', overflowY: 'auto' }}>
+                    {searchResults.slice(0, 5).map((svc) => {
+                      const st = (() => {
+                        const t = svc.title;
+                        if (typeof t === 'string') { try { return JSON.parse(t)[lang] || JSON.parse(t).en || t; } catch { return t; } }
+                        if (typeof t === 'object') return t[lang] || t.en || svc.code;
+                        return svc.code;
+                      })();
+                      return (
+                        <button
+                          key={svc.id}
+                          onClick={() => { navigateToService(svc.id || svc.code); setMobileOpen(false); }}
+                          className="w-full text-left px-3 py-2.5 text-sm text-dark-700 dark:text-ivory-200/80 hover:bg-ivory-100 dark:hover:bg-dark-800 border-b border-dark-100 dark:border-dark-800 last:border-0 transition-colors"
+                        >
+                          {st}
+                          <span className="text-[10px] text-dark-400 dark:text-ivory-200/40 ml-2">{svc.code}</span>
+                        </button>
+                      );
+                    })}
+                  </div>
+                )}
+                {search.trim() && searchResults.length === 0 && (
+                  <div className="absolute top-full left-0 right-0 mt-1 bg-white dark:bg-dark-900 border border-dark-200 dark:border-dark-700 rounded-xl shadow-xl p-3 text-center text-xs text-dark-400 dark:text-ivory-200/40">
+                    {t('common.no_results')}
+                  </div>
+                )}
+              </div>
+              {navLinks.map((link) => {
+                const isActive = location.pathname === link.path;
+                return (
+                  <Link
+                    key={link.key}
+                    to={link.path}
+                    onClick={() => setMobileOpen(false)}
+                    className={`block text-sm font-medium tracking-wider uppercase py-2 sm:py-2.5 transition-colors ${
+                      isActive
+                        ? 'text-champagne-500 dark:text-champagne-400'
+                        : 'text-dark-600 dark:text-ivory-200/70 hover:text-champagne-500 dark:hover:text-champagne-400'
+                    }`}
+                  >
+                    {t(`nav.${link.key}`)}
+                  </Link>
+                );
+              })}
               <Link
                 to="/download"
                 onClick={() => setMobileOpen(false)}

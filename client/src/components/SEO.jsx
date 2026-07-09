@@ -1,7 +1,8 @@
 import { Helmet } from 'react-helmet-async';
 import { useTheme } from '../contexts/ThemeContext';
 
-const SITE_URL = 'https://medical-wellness.ma';
+const SITE_URL = 'https://medicalwellnes.com';
+const DEFAULT_OG_IMAGE = `${SITE_URL}/wellness_morning.png`;
 const DEFAULT_TITLE = 'Medical Wellness — Premium Medical Wellness Center in Tangier';
 const DEFAULT_DESC = 'Centre de bien-être médical de luxe à Tanger (Malabata). Médecine préventive, kinésithérapie, nutrition, SPA & hammam, I-SLIM, amincissement, fitness, esthétique.';
 
@@ -44,12 +45,12 @@ export default function SEO({
       <meta property="og:url" content={pageCanonical} />
       <meta property="og:site_name" content="Medical Wellness" />
       <meta property="og:locale" content={ogLocale} />
-      {ogImage && <meta property="og:image" content={ogImage} />}
+      <meta property="og:image" content={ogImage || DEFAULT_OG_IMAGE} />
 
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content={pageTitle} />
       <meta name="twitter:description" content={pageDesc} />
-      {ogImage && <meta name="twitter:image" content={ogImage} />}
+      <meta name="twitter:image" content={ogImage || DEFAULT_OG_IMAGE} />
 
       {langAlternates.map((alt) => (
         <link key={alt.code} rel="alternate" hrefLang={alt.code} href={`${SITE_URL}/${alt.code}`} />

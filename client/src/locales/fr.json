@@ -28,6 +28,12 @@
     "price": "Investissement",
     "learn_more": "Prendre rendez-vous",
     "learn_more_desc": "Découvrez nos programmes de bien-être personnalisés adaptés à vos objectifs de santé et besoins corporels.",
+    "see_details": "Voir plus de détails",
+    "media_gallery": "Galerie Média",
+    "photos": "Photos",
+    "videos": "Vidéos",
+    "media_coming_soon": "Galerie média bientôt disponible",
+    "media_coming_soon_desc": "Les photos et vidéos de ce service seront ajoutées prochainement.",
     "browse_title": "Nos Programmes",
     "browse_subtitle": "Parcourez et abonnez-vous à nos programmes bien-être",
     "search_placeholder": "Rechercher...",
@@ -48,6 +54,7 @@
     "fitness_desc": "Programmes de fitness sur mesure conçus par nos coachs experts pour améliorer force, endurance et bien-être général.",
     "esthetique_desc": "Médecine esthétique et traitements anti-âge incluant HIFU lifting, cryothérapie et protocoles avancés de soin de la peau.",
     "spa_desc": "Expérience SPA et hammam marocain de luxe alliant rituels traditionnels et techniques modernes de bien-être pour une relaxation profonde.",
+    "piscine_desc": "Piscine intérieure chauffée ouverte toute l'année pour la natation thérapeutique, l'aqua fitness et la relaxation dans un environnement de bien-être médical serein.",
     "wellness_assess_desc": "Bilan bien-être complet avec analyse morphologique, profilage métabolique et feuille de route santé personnalisée."
   },
   "cta_section": {
@@ -68,14 +75,21 @@
   },
   "contact_section": {
     "title": "Notre Emplacement & Contact",
-    "maps_button": "Nous situer sur Google Maps",
+    "maps_button": "Localiser sur Google Maps",
     "phone": "WhatsApp",
     "address_label": "Adresse",
     "address_value": "Villa Mernissi, Bella Vista, à côté de Malabata Mall, en face Tanja Balia - Tanger.",
-    "instagram_clinic": "Instagram de la Clinique",
-    "instagram_doctor": "Instagram du Dr. Mernissi",
-    "facebook_doctor": "Facebook du Dr. Mernissi",
-    "tiktok_clinic": "TikTok Medical Wellness"
+    "instagram_clinic": "Instagram Clinique",
+    "instagram_doctor": "Instagram Dr. Mernissi",
+    "facebook_doctor": "Facebook Dr. Mernissi",
+    "tiktok_clinic": "Medical Wellness TikTok",
+    "form_title": "Envoyez-nous un message",
+    "form_name": "Votre Nom",
+    "form_email": "Votre Email",
+    "form_phone": "Votre Téléphone",
+    "form_message": "Votre Message",
+    "form_submit": "Envoyer le message",
+    "form_success": "Merci ! Nous vous répondrons sous peu."
   },
   "app_section": {
     "badge": "MY WELLNESS",
@@ -109,7 +123,9 @@
     "sign_out": "Déconnexion",
     "dark_mode": "Mode Sombre",
     "light_mode": "Mode Clair",
-    "language": "Langue"
+    "language": "Langue",
+    "search_placeholder": "Rechercher un programme...",
+    "book_appointment": "Prendre RDV"
   },
   "client": {
     "my_dashboard": "Mon Tableau de Bord",
@@ -554,6 +570,21 @@
     "phone": "+212 5 39 33 33 33",
     "email": "contact@medical-wellness.ma",
     "hours": "Lun–Sam : 9h00 – 20h00",
+    "visit_text": "Notre clinique est située au cœur de Malabata, Tanger. Venez nous rendre visite pour une expérience bien-être personnalisée.",
     "button": "Obtenir l'itinéraire"
+  },
+  "seo": {
+    "home_title": "Medical Wellness — Centre de Bien-Être Médical de Luxe à Tanger",
+    "home_desc": "Découvrez notre centre de bien-être médical de luxe à Tanger. Médecine préventive, kinésithérapie, nutrition, SPA & hammam, I-SLIM, amincissement, fitness.",
+    "services_title": "Programmes & Services Bien-Être — Medical Wellness Tanger",
+    "services_desc": "Explorez nos programmes bien-être : médecine préventive, kinésithérapie, nutrition, amincissement, SPA & hammam, fitness, I-SLIM à Tanger.",
+    "about_title": "À Propos — Medical Wellness Tanger",
+    "about_desc": "Rencontrez le Dr. Abdelali Mernissi et notre équipe. Découvrez notre approche médicale de la santé préventive et du bien-être holistique.",
+    "contact_title": "Contact & Localisation — Medical Wellness Tanger",
+    "contact_desc": "Visitez notre centre de bien-être médical à Malabata, Tanger. Téléphone, WhatsApp, itinéraire GPS et horaires d'ouverture.",
+    "app_title": "Application My Wellness — Medical Wellness",
+    "app_desc": "Téléchargez l'application Medical Wellness pour gérer vos abonnements, rendez-vous et programmes bien-être.",
+    "download_title": "Pré-commande Application My Wellness — Medical Wellness",
+    "download_desc": "Soyez le premier à obtenir l'application Medical Wellness. Pré-commandez maintenant et recevez des bonus exclusifs."
   }
 }

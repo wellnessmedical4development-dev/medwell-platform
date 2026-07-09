@@ -11,7 +11,7 @@ const SERVICE_IMAGES = {
   'AMINCISSEMENT': '/amincissement.jpg',
   'FITNESS-PROG': '/image_fitness.png',
   'ESTHETIQUE': '/image_beauty.jpg',
-  'SPA-HAMMAM': '/spa-hammam.jpg',
+  'SPA-HAMMAM': '/spa-hammam.png',
   'WELLNESS-ASSESS': '/assessment.jpg',
 };
 

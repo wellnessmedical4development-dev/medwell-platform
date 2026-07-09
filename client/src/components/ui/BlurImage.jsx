@@ -3,6 +3,8 @@ import { motion } from 'framer-motion';
 
 function getWebpSrc(src) {
   if (!src || src.startsWith('http')) return null;
+  const ext = src.split('.').pop().toLowerCase();
+  if (ext === 'png' || ext === 'gif') return null;
   const dot = src.lastIndexOf('.');
   if (dot === -1) return null;
   return src.slice(0, dot) + '.webp';

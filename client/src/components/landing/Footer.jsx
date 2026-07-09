@@ -50,13 +50,22 @@ export default function Footer() {
                   </svg>
                   06 66 99 30 30
                 </a>
+                <a
+                  href="tel:+212531281283"
+                  className="inline-flex items-center gap-2 text-base sm:text-base font-semibold text-dark-900 dark:text-ivory-50 hover:text-champagne-500 transition-colors"
+                >
+                  <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+                  </svg>
+                  05 31 28 12 83
+                </a>
               </div>
             </div>
 
             {/* Google Maps locate button */}
             <div className="pt-2">
               <a
-                href="https://maps.app.goo.gl/pz5dHW8xQWyZXGmk7?g_st=ac"
+                href="https://www.google.com/maps/place/MEDICAL+WELLNESS/@35.7731077,-5.7712984,17z/data=!4m6!3m5!1s0xd0b819d5390d345:0x90f3fffebc5f0bf0!8m2!3d35.7731077!4d-5.7712984!16s%2Fg%2F11kpz0rq1r?entry=ttu"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2.5 px-6 py-3 border-2 border-[#D4AF37] hover:bg-[#D4AF37] text-[#D4AF37] hover:text-dark-900 font-bold tracking-widest uppercase rounded-full text-xs transition-all duration-300 shadow-[0_4px_16px_rgba(212,175,55,0.1)]"

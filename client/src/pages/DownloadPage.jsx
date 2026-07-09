@@ -30,7 +30,7 @@ export default function DownloadPage() {
 
   return (
     <div className="min-h-screen bg-ivory-50 dark:bg-dark-950 flex flex-col items-center justify-center px-4 py-16" dir={isRtl ? 'rtl' : 'ltr'}>
-      <SEO titleKey="download.preorder_title" descriptionKey="download.desc" path="/download" />
+      <SEO title={t('seo.download_title')} description={t('seo.download_desc')} />
 
       <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="w-full max-w-md mx-auto text-center">
         <div className="w-20 h-20 mx-auto mb-6 rounded-2xl bg-champagne-400/10 flex items-center justify-center">

@@ -1,13 +1,12 @@
-import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import useTranslation from '../../hooks/useTranslation';
 
 const NAV_ITEMS = [
-  { key: 'home', href: '#home', icon: 'home' },
-  { key: 'services', href: '#services', icon: 'services' },
-  { key: 'about', href: '#about', icon: 'about' },
-  { key: 'contact', href: '#contact', icon: 'contact' },
-  { key: 'app', href: '/download', icon: 'app', isLink: true },
+  { key: 'home', path: '/', icon: 'home' },
+  { key: 'services', path: '/services', icon: 'services' },
+  { key: 'about', path: '/about', icon: 'about' },
+  { key: 'contact', path: '/contact', icon: 'contact' },
+  { key: 'app', path: '/app', icon: 'app' },
 ];
 
 function NavIcon({ name, className }) {
@@ -39,14 +38,12 @@ function NavIcon({ name, className }) {
 export default function MobileBottomNav() {
   const { t, lang } = useTranslation();
   const isRtl = lang === 'ar';
-  const [activeKey, setActiveKey] = useState('home');
+  const navigate = useNavigate();
+  const location = useLocation();
+  const activeKey = NAV_ITEMS.find((item) => item.path === location.pathname)?.key || 'home';
 
   const handleClick = (item) => {
-    setActiveKey(item.key);
-    if (!item.isLink) {
-      const el = document.querySelector(item.href);
-      if (el) el.scrollIntoView({ behavior: 'smooth' });
-    }
+    navigate(item.path);
   };
 
   return (
@@ -54,20 +51,17 @@ export default function MobileBottomNav() {
       <div className="block lg:hidden h-16 sm:h-20" />
       <nav
         dir={isRtl ? 'rtl' : 'ltr'}
+        style={{ paddingBottom: 'env(safe-area-inset-bottom)' }}
         className="fixed bottom-0 left-0 right-0 z-50 block lg:hidden bg-white/95 dark:bg-dark-950/95 backdrop-blur-xl border-t border-ivory-200 dark:border-dark-800 shadow-[0_-4px_20px_rgba(0,0,0,0.08)]"
       >
         <div className="flex items-center justify-around h-16 sm:h-20 px-2 max-w-lg mx-auto">
           {NAV_ITEMS.map((item) => {
             const isActive = activeKey === item.key;
-            const Component = item.isLink ? Link : 'a';
-            const props = item.isLink
-              ? { to: item.href, onClick: () => handleClick(item) }
-              : { href: item.href, onClick: (e) => { e.preventDefault(); handleClick(item); } };
 
             return (
-              <Component
+              <button
                 key={item.key}
-                {...props}
+                onClick={() => handleClick(item)}
                 className="flex flex-col items-center justify-center gap-0.5 py-1 px-2 min-w-0"
               >
                 <div className={`p-1.5 rounded-xl transition-all duration-300 ${
@@ -84,7 +78,7 @@ export default function MobileBottomNav() {
                 }`}>
                   {t(`nav.${item.key}`)}
                 </span>
-              </Component>
+              </button>
             );
           })}
         </div>

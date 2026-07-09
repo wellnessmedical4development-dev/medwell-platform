@@ -1,7 +1,7 @@
 import { useState, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
-export default function RippleButton({ children, className, onClick, ...props }) {
+export default function RippleButton({ children, className, onClick, href, ...props }) {
   const [ripples, setRipples] = useState([]);
 
   const handleClick = useCallback((e) => {
@@ -11,11 +11,13 @@ export default function RippleButton({ children, className, onClick, ...props })
     const id = Date.now();
     setRipples((prev) => [...prev, { x, y, id }]);
     setTimeout(() => setRipples((prev) => prev.filter((r) => r.id !== id)), 1000);
-    onClick?.(e);
-  }, [onClick]);
+    if (!href) onClick?.(e);
+  }, [onClick, href]);
+
+  const Tag = href ? 'a' : 'button';
 
   return (
-    <button className={`relative overflow-hidden ${className || ''}`} onClick={handleClick} {...props}>
+    <Tag href={href} target={href ? '_blank' : undefined} rel={href ? 'noopener noreferrer' : undefined} className={`relative overflow-hidden ${className || ''}`} onClick={handleClick} {...props}>
       {children}
       <AnimatePresence>
         {ripples.map((r) => (
@@ -30,6 +32,6 @@ export default function RippleButton({ children, className, onClick, ...props })
           />
         ))}
       </AnimatePresence>
-    </button>
+    </Tag>
   );
 }

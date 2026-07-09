@@ -46,7 +46,7 @@ export default function LocationSection() {
             className="rounded-2xl overflow-hidden border border-dark-700 shadow-xl h-[300px] sm:h-[400px] lg:h-full min-h-[300px]"
           >
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2583.368102314259!2d-5.795293684220739!3d35.77331252798315!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd0c41c6d1e7c1f7%3A0x8c0a3e5c7b2f1a0!2sVilla%20Mernissi!5e0!3m2!1sfr!2sma!4v1"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2583!2d-5.7712984!3d35.7731077!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd0b819d5390d345%3A0x90f3fffebc5f0bf0!2sMEDICAL%20WELLNESS!5e0!3m2!1sfr!2sma!4v1"
               width="100%"
               height="100%"
               style={{ border: 0, minHeight: '300px' }}
@@ -83,9 +83,12 @@ export default function LocationSection() {
               </p>
             </div>
 
-            <div className="pt-4">
+            <div className="pt-4 space-y-4">
+              <p className="text-sm leading-relaxed text-ivory-200/50 font-light">
+                {t('location.visit_text')}
+              </p>
               <a
-                href="https://maps.app.goo.gl/pz5dHW8xQWyZXGmk7?g_st=ac"
+                href="https://www.google.com/maps/place/MEDICAL+WELLNESS/@35.7731077,-5.7712984,17z/data=!4m6!3m5!1s0xd0b819d5390d345:0x90f3fffebc5f0bf0!8m2!3d35.7731077!4d-5.7712984!16s%2Fg%2F11kpz0rq1r?entry=ttu"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2.5 px-6 py-3 border-2 border-[#C59D5D] hover:bg-[#C59D5D] text-[#C59D5D] hover:text-dark-900 font-bold tracking-widest uppercase rounded-full text-xs transition-all duration-300 shadow-[0_4px_16px_rgba(197,157,93,0.1)]"
