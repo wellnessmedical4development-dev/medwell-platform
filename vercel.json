@@ -4,6 +4,7 @@
   "outputDirectory": "client/dist",
   "routes": [
     { "src": "/api/(.*)", "dest": "api/index.js" },
+    { "src": "/(.*)\\.(MOV|mov|mp4|webm|ogg)", "dest": "/$1.$2", "headers": { "content-type": "video/quicktime" } },
     { "handle": "filesystem" },
     { "src": "/(.*)", "dest": "/index.html" }
   ]
