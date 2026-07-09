@@ -559,7 +559,9 @@
     "address": "47, Avenida Mohammed VI, Malabata, Tánger, Marruecos",
     "phone": "+212 5 39 33 33 33",
     "email": "contact@medical-wellness.ma",
-    "hours": "Lun–Sáb: 9:00 – 20:00",
+    "hours": "Lun–Sáb: 8:30 – 22:00\nDomingo: Cerrado",
+    "hours_title": "Horario de apertura",
+    "hours_value": "Lun–Sáb: 8:30 – 22:00\nDomingo: Cerrado",
     "visit_text": "Nuestra clínica está ubicada en el corazón de Malabata, Tánger. Visítenos para una experiencia de bienestar personalizada.",
     "button": "Obtener indicaciones"
   },

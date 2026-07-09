@@ -569,7 +569,9 @@
     "address": "47, Avenue Mohammed VI, Malabata, Tangier, Morocco",
     "phone": "+212 5 39 33 33 33",
     "email": "contact@medical-wellness.ma",
-    "hours": "Mon–Sat: 9:00 AM – 8:00 PM",
+    "hours": "Mon–Sat: 8:30 AM – 10:00 PM\nSunday: Closed",
+    "hours_title": "Opening Hours",
+    "hours_value": "Mon–Sat: 8:30 AM – 10:00 PM\nSunday: Closed",
     "visit_text": "Our clinic is located in the heart of Malabata, Tangier. Visit us for a personalized wellness experience.",
     "button": "Get directions"
   },

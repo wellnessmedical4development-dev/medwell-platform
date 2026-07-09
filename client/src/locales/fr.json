@@ -569,7 +569,9 @@
     "address": "47, Avenue Mohammed VI, Malabata, Tanger, Maroc",
     "phone": "+212 5 39 33 33 33",
     "email": "contact@medical-wellness.ma",
-    "hours": "Lun–Sam : 9h00 – 20h00",
+    "hours": "Lun–Sam : 8h30 – 22h00\nDimanche : Fermé",
+    "hours_title": "Horaires d'ouverture",
+    "hours_value": "Lun–Sam : 8h30 – 22h00\nDimanche : Fermé",
     "visit_text": "Notre clinique est située au cœur de Malabata, Tanger. Venez nous rendre visite pour une expérience bien-être personnalisée.",
     "button": "Obtenir l'itinéraire"
   },
