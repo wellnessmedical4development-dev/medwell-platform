@@ -2,9 +2,12 @@ import { createContext, useContext, useState, useEffect } from 'react';
 
 const ThemeContext = createContext(null);
 
+const LANG_VERSION = 'v2';
+const LANG_STORAGE_KEY = 'lang_' + LANG_VERSION;
+
 export function ThemeProvider({ children }) {
   const [mode, setMode] = useState(() => localStorage.getItem('theme') || 'light');
-  const [lang, setLang] = useState(() => localStorage.getItem('lang') || 'ar');
+  const [lang, setLang] = useState(() => localStorage.getItem(LANG_STORAGE_KEY) || 'ar');
 
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', mode);
@@ -14,7 +17,7 @@ export function ThemeProvider({ children }) {
   useEffect(() => {
     document.documentElement.setAttribute('lang', lang);
     document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
-    localStorage.setItem('lang', lang);
+    localStorage.setItem(LANG_STORAGE_KEY, lang);
   }, [lang]);
 
   const toggleMode = () => setMode(prev => prev === 'light' ? 'dark' : 'light');

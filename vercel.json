@@ -2,6 +2,14 @@
   "installCommand": "npm install && npm --prefix client install",
   "buildCommand": "npm run build",
   "outputDirectory": "client/dist",
+  "headers": [
+    {
+      "source": "/index.html",
+      "headers": [
+        { "key": "Cache-Control", "value": "no-cache, no-store, must-revalidate" }
+      ]
+    }
+  ],
   "routes": [
     { "src": "/api/(.*)", "dest": "api/index.js" },
     { "handle": "filesystem" },
