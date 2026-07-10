@@ -21,6 +21,7 @@ export default function ServiceMediaModal({ isOpen, onClose, service, getTitle }
   if (!isOpen) return null;
 
   const title = service ? (getTitle ? getTitle(service) : service.code) : '';
+  const serviceCode = service?.code || '(no code)';
   const detailKey = service?.code ? `services.details.${service.code}` : null;
   const description = detailKey ? t(detailKey) : '';
 
@@ -61,6 +62,7 @@ export default function ServiceMediaModal({ isOpen, onClose, service, getTitle }
         </div>
 
         <div className="px-3 sm:px-6 py-3 sm:py-4">
+          <p className="text-xs text-red-500 mb-2">Code: {serviceCode} | Key: {detailKey || 'null'}</p>
           {description ? (
             <div className="bg-white dark:bg-dark-800/50 rounded-xl border border-ivory-200 dark:border-dark-700 p-3 sm:p-5">
               <p className="text-[13px] sm:text-[15px] text-dark-600 dark:text-ivory-200/80 leading-relaxed sm:leading-7 whitespace-pre-line">
@@ -72,6 +74,7 @@ export default function ServiceMediaModal({ isOpen, onClose, service, getTitle }
               <p className="text-dark-500 dark:text-ivory-200/60 text-sm font-light">
                 {t('services.media_coming_soon')}
               </p>
+              <p className="text-[10px] text-red-400 mt-2">description is empty/falsy</p>
             </div>
           )}
         </div>
