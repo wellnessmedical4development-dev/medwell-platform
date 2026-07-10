@@ -1,4 +1,3 @@
-import { useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { X, Info, Phone, MessageCircle } from 'lucide-react';
 import useTranslation from '../../hooks/useTranslation';
@@ -9,7 +8,6 @@ const PHONE_NUMBER = '+212531281283';
 export default function ServiceMediaModal({ isOpen, onClose, service, getTitle }) {
   const { t, lang } = useTranslation();
   const isRtl = lang === 'ar';
-  const scrollRef = useRef(null);
 
   const title = service ? (getTitle ? getTitle(service) : service.code) : '';
   const detailKey = service?.code ? `services.details.${service.code}` : null;
@@ -33,21 +31,22 @@ export default function ServiceMediaModal({ isOpen, onClose, service, getTitle }
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          className="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4"
+          className="fixed inset-0 z-50 flex items-start sm:items-center justify-center p-2 sm:p-4 pt-12 sm:pt-4 overflow-y-auto"
+          onClick={onClose}
         >
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            onClick={onClose}
-            className="absolute inset-0 bg-black/70 backdrop-blur-md"
+            className="fixed inset-0 bg-black/70 backdrop-blur-md"
           />
           <motion.div
             initial={{ opacity: 0, scale: 0.9, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.9, y: 20 }}
             transition={{ type: 'spring', duration: 0.5 }}
-            className="relative bg-[#FDFBF7] dark:bg-dark-900 border-2 border-[#D4AF37] rounded-3xl w-full max-w-3xl max-h-[90vh] sm:max-h-[85vh] overflow-y-auto shadow-2xl"
+            onClick={(e) => e.stopPropagation()}
+            className="relative bg-[#FDFBF7] dark:bg-dark-900 border-2 border-[#D4AF37] rounded-3xl w-full max-w-3xl shadow-2xl"
             dir={isRtl ? 'rtl' : 'ltr'}
           >
             <button
@@ -57,23 +56,20 @@ export default function ServiceMediaModal({ isOpen, onClose, service, getTitle }
               <X className="w-4 h-4" />
             </button>
 
-            <div className="p-4 sm:p-6 lg:p-8">
-              <div className="text-center mb-4 sm:mb-6">
-                <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-champagne-400/10 border border-[#D4AF37] flex items-center justify-center mx-auto mb-2 sm:mb-3">
+            <div className="p-5 sm:p-8">
+              <div className="text-center mb-5 sm:mb-6">
+                <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-champagne-400/10 border border-[#D4AF37] flex items-center justify-center mx-auto mb-3">
                   <Info className="w-5 h-5 sm:w-6 sm:h-6 text-[#D4AF37]" />
                 </div>
-                <h3 className="font-display text-lg sm:text-xl lg:text-2xl font-bold text-dark-900 dark:text-ivory-50 px-2">
+                <h3 className="font-display text-lg sm:text-xl lg:text-2xl font-bold text-dark-900 dark:text-ivory-50">
                   {title}
                 </h3>
-                <p className="text-xs sm:text-sm text-dark-500 dark:text-ivory-200/60 mt-1">
-                  {t('services.see_details')}
-                </p>
               </div>
 
-              <div ref={scrollRef} className="space-y-4 sm:space-y-6">
+              <div className="space-y-5 sm:space-y-6">
                 {description ? (
-                  <div className="bg-white dark:bg-dark-800/50 rounded-xl border border-ivory-200 dark:border-dark-700 p-4 sm:p-5 lg:p-6">
-                    <p className="text-sm sm:text-base lg:text-[15px] text-dark-600 dark:text-ivory-200/80 leading-relaxed sm:leading-7 whitespace-pre-line">
+                  <div className="bg-white dark:bg-dark-800/50 rounded-xl border border-ivory-200 dark:border-dark-700 p-4 sm:p-6">
+                    <p className="text-sm sm:text-base text-dark-600 dark:text-ivory-200/80 leading-relaxed sm:leading-7 whitespace-pre-line">
                       {description}
                     </p>
                   </div>
@@ -85,7 +81,7 @@ export default function ServiceMediaModal({ isOpen, onClose, service, getTitle }
                   </div>
                 )}
 
-                <div className="bg-champagne-400/5 border border-champagne-400/20 rounded-xl p-4 sm:p-5 lg:p-6">
+                <div className="bg-champagne-400/5 border border-champagne-400/20 rounded-xl p-4 sm:p-6">
                   <h4 className="text-xs sm:text-sm font-semibold text-dark-700 dark:text-ivory-200 mb-3 text-center uppercase tracking-wider">
                     {lang === 'fr' ? 'Contactez-nous' : lang === 'es' ? 'Contáctenos' : lang === 'ar' ? 'اتصل بنا' : 'Contact Us'}
                   </h4>
