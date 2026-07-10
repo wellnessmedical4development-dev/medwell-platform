@@ -4,7 +4,7 @@ const ThemeContext = createContext(null);
 
 export function ThemeProvider({ children }) {
   const [mode, setMode] = useState(() => localStorage.getItem('theme') || 'light');
-  const [lang, setLang] = useState(() => localStorage.getItem('lang') || 'fr');
+  const [lang, setLang] = useState(() => localStorage.getItem('lang') || 'ar');
 
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', mode);
