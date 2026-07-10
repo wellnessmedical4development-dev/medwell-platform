@@ -6,6 +6,7 @@ const cookieParser = require('cookie-parser');
 const compression = require('compression');
 const rateLimit = require('express-rate-limit');
 const path = require('path');
+const crypto = require('crypto');
 const { i18next, middleware: i18nMiddleware } = require('./config/i18n');
 const { setLang, rtlRedirect } = require('./middleware/i18n');
 
@@ -30,18 +31,79 @@ const app = express();
 
 app.use(compression());
 
-app.use(helmet({ crossOriginResourcePolicy: { policy: 'cross-origin' } }));
+const cspDirectives = {
+  defaultSrc: ["'self'"],
+  scriptSrc: ["'self'", "'unsafe-inline'", 'https://www.googletagmanager.com', 'https://www.clarity.ms', 'https://cdn.jsdelivr.net'],
+  styleSrc: ["'self'", "'unsafe-inline'", 'https://fonts.googleapis.com', 'https://cdn.jsdelivr.net'],
+  imgSrc: ["'self'", 'data:', 'blob:', 'https://www.googletagmanager.com', 'https://www.clarity.ms', 'https://images.unsplash.com'],
+  fontSrc: ["'self'", 'https://fonts.gstatic.com'],
+  connectSrc: ["'self'", 'https://api.groq.com', 'https://www.googletagmanager.com', 'https://clarity.ms'],
+  frameSrc: ["'none'"],
+  objectSrc: ["'none'"],
+  upgradeInsecureRequests: [],
+};
+
+app.use(helmet({
+  contentSecurityPolicy: { directives: cspDirectives, reportOnly: false },
+  crossOriginResourcePolicy: { policy: 'cross-origin' },
+  crossOriginEmbedderPolicy: false,
+  referrerPolicy: { policy: 'strict-origin-when-cross-origin' },
+  frameguard: { action: 'deny' },
+  noSniff: true,
+  xssFilter: true,
+  hidePoweredBy: true,
+  hsts: { maxAge: 31536000, includeSubDomains: true, preload: true },
+}));
 
 app.use(cors({
   origin: process.env.CORS_ORIGIN || '*',
   credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With', 'X-CSRF-Token'],
+  exposedHeaders: ['X-RateLimit-Limit', 'X-RateLimit-Remaining'],
 }));
+
+const globalLimiter = rateLimit({
+  windowMs: 15 * 60 * 1000,
+  max: 200,
+  message: { error: 'Too many requests. Please try again later.' },
+  standardHeaders: true,
+  legacyHeaders: false,
+  skip: (req) => req.path.startsWith('/assets/') || req.path === '/index.html',
+});
+app.use('/api/', globalLimiter);
 
 app.use(morgan(process.env.NODE_ENV === 'production' ? 'combined' : 'dev'));
 
-app.use(express.json({ limit: '10mb' }));
-app.use(express.urlencoded({ extended: true }));
+app.use(express.json({ limit: '1mb' }));
+app.use(express.urlencoded({ extended: true, limit: '1mb' }));
 app.use(cookieParser());
+
+// Security middleware: sanitize request body
+app.use((req, res, next) => {
+  if (req.body && typeof req.body === 'object') {
+    const sanitize = (obj) => {
+      if (typeof obj === 'string') {
+        return obj.replace(/[<>]/g, '').trim();
+      }
+      if (Array.isArray(obj)) return obj.map(sanitize);
+      if (obj && typeof obj === 'object') {
+        const sanitized = {};
+        for (const [k, v] of Object.entries(obj)) sanitized[k] = sanitize(v);
+        return sanitized;
+      }
+      return obj;
+    };
+    req.body = sanitize(req.body);
+  }
+  next();
+});
+
+// Nonce generation for CSP
+app.use((req, res, next) => {
+  res.locals.nonce = crypto.randomBytes(16).toString('base64');
+  next();
+});
 
 app.use(i18nMiddleware.handle(i18next));
 app.use(setLang);
@@ -60,17 +122,25 @@ app.use(express.static(path.join(__dirname, '..', 'client', 'dist'), {
 app.use('/uploads', express.static(path.join(__dirname, '..', 'uploads')));
 
 const authLimiter = rateLimit({
-  windowMs: 60 * 1000,
-  max: 10,
-  message: { error: 'Too many requests. Please try again later.' },
+  windowMs: 15 * 60 * 1000,
+  max: 20,
+  message: { error: 'Too many authentication attempts. Please try again later.' },
   standardHeaders: true,
   legacyHeaders: false,
 });
 
 const otpLimiter = rateLimit({
-  windowMs: 60 * 1000,
-  max: 3,
+  windowMs: 15 * 60 * 1000,
+  max: 5,
   message: { error: 'Too many OTP requests. Please wait before trying again.' },
+  standardHeaders: true,
+  legacyHeaders: false,
+});
+
+const apiLimiter = rateLimit({
+  windowMs: 60 * 1000,
+  max: 60,
+  message: { error: 'Too many API requests. Slow down.' },
   standardHeaders: true,
   legacyHeaders: false,
 });

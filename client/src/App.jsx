@@ -10,6 +10,7 @@ import MobileBottomNav from './components/landing/MobileBottomNav';
 import ScrollProgress from './components/ui/ScrollProgress';
 import FloatingContact from './components/ui/FloatingContact';
 import ChatAssistant from './components/chat/ChatAssistant';
+import Analytics from './components/Analytics';
 import HomePage from './pages/HomePage';
 import ServicesPage from './pages/ServicesPage';
 import AboutPage from './pages/AboutPage';
@@ -49,6 +50,7 @@ export default function App() {
       <ThemeProvider>
         <ToastProvider>
           <div className="landing-page">
+            <Analytics />
             <ScrollRestore />
             <ScrollProgress />
             <Navbar />
