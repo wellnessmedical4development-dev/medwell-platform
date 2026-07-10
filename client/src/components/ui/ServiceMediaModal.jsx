@@ -37,7 +37,7 @@ export default function ServiceMediaModal({ isOpen, onClose, service, getTitle }
 
   return (
     <div className="fixed inset-0 z-[9999] overflow-y-auto bg-black/70" onClick={onClose}>
-      <div className="min-h-screen flex items-center justify-center p-4">
+      <div className="flex items-center justify-center p-4" style={{ minHeight: '100dvh' }}>
         <div
           onClick={(e) => e.stopPropagation()}
           className="relative w-full max-w-2xl bg-[#FDFBF7] dark:bg-dark-900 border-2 border-[#D4AF37] rounded-3xl shadow-2xl"
