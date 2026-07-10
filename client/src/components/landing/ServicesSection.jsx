@@ -54,6 +54,16 @@ const FALLBACK_SERVICES = [
     title: { en: 'Swimming Pool', fr: 'Piscine', es: 'Piscina', ar: 'المسبح' },
     duration_days: 1, image: '/piscine.png',
   },
+  {
+    id: 'pilates', code: 'PILATES',
+    title: { en: 'Pilates & Body Conditioning', fr: 'Pilates & Conditionnement', es: 'Pilates y Acondicionamiento', ar: 'البيلاتس وتقوية الجسم' },
+    duration_days: 30, image: '/pilates.jpg',
+  },
+  {
+    id: 'laser', code: 'LASER',
+    title: { en: 'Laser Treatments', fr: 'Traitements Laser', es: 'Tratamientos Láser', ar: 'العلاجات بالليزر' },
+    duration_days: 15, image: '/laser.jpg',
+  },
 ];
 
 const cardVariants = {

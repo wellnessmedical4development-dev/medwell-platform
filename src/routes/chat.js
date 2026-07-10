@@ -18,6 +18,8 @@ SERVICES & DESCRIPTIONS:
 - SPA & Hammam: Luxury spa treatments, traditional hammam, massage, and relaxation
 - Wellness Assessment: Full health evaluation including body composition, posture analysis
 - Swimming Pool: Heated indoor pool for aquatic therapy and swimming
+- Pilates: Core strengthening, posture improvement, and body conditioning through controlled movements
+- Laser: Hair removal, skin rejuvenation, pigmentation correction, and scar reduction treatments
 
 HOW TO BOOK: Users can book by calling 05 31 28 12 83 or on WhatsApp at 06 66 99 30 30
 
@@ -43,6 +45,8 @@ SERVICES ET DESCRIPTIONS :
 - SPA & Hammam : Soins spa de luxe, hammam traditionnel, massage et relaxation
 - Bilan Bien-être : Évaluation complète de santé, composition corporelle, analyse posturale
 - Piscine : Piscine intérieure chauffée pour thérapie aquatique et natation
+- Pilates : Renforcement musculaire, amélioration de la posture et conditionnement corporel par mouvements contrôlés
+- Laser : Épilation définitive, rajeunissement cutané, correction des pigments et réduction des cicatrices
 
 COMMANDER : Les clients peuvent réserver en appelant le 05 31 28 12 83 ou sur WhatsApp au 06 66 99 30 30
 
@@ -68,6 +72,8 @@ SERVICIOS Y DESCRIPCIONES:
 - SPA & Hammam: Tratamientos spa de lujo, hammam tradicional, masajes y relajación
 - Evaluación de Bienestar: Evaluación completa de salud, composición corporal, análisis postural
 - Piscina: Piscina cubierta climatizada para terapia acuática y natación
+- Pilates: Fortalecimiento central, mejora de postura y acondicionamiento corporal mediante movimientos controlados
+- Láser: Depilación permanente, rejuvenecimiento cutáneo, corrección de pigmentación y reducción de cicatrices
 
 CÓMO RESERVAR: Los clientes pueden reservar llamando al 05 31 28 12 83 o por WhatsApp al 06 66 99 30 30
 
@@ -93,6 +99,8 @@ REGLAS:
 - السبا والحمام: علاجات سبا فاخرة، حمام تقليدي، مساج واسترخاء
 - تقييم الصحة: تقييم صحي كامل، تحليل تكوين الجسم، تحليل الوضعية
 - المسبح: مسبح داخلي مدفأ للعلاج المائي والسباحة
+- البيلاتس: تقوية الجذع وتحسين الوضعية وتقوية الجسم من خلال حركات مسيطر عليها
+- الليزر: إزالة الشعر الدائم وتجديد البشرة وتصحيح التصبغات وتقليل الندبات
 
 كيفية الحجز: يمكن للعملاء الحجز بالاتصال على 05 31 28 12 83 أو عبر واتساب على 06 66 99 30 30
 
