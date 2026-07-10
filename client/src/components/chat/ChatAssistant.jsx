@@ -57,6 +57,13 @@ export default function ChatAssistant() {
     }
   };
 
+  const handleKeyDown = (e) => {
+    if (e.key === 'Enter' && !e.shiftKey) {
+      e.preventDefault();
+      send();
+    }
+  };
+
   const renderText = useCallback((text) => {
     const phoneRegex = /(\+212\s*[\d\s]{6,})/g;
     const parts = text.split(phoneRegex);
