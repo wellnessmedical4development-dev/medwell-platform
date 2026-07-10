@@ -65,6 +65,7 @@ const cardVariants = {
 };
 
 const WHATSAPP_NUMBER = '212666993030';
+const PHONE_NUMBER = '+212531281283';
 
 const WHATSAPP_MSG = {
   en: (s) => `Hello, I am interested in the "${s}" program at Medical Wellness.`,
@@ -178,8 +179,13 @@ export default function ServicesSection() {
                 viewport={{ once: true, margin: '-40px' }}
                 className={`group relative bg-white dark:bg-dark-800/50 rounded-2xl overflow-hidden border border-ivory-200 dark:border-dark-700 hover:border-champagne-400/40 hover:-translate-y-1 hover:shadow-[0_8px_32px_rgba(212,175,55,0.12)] transition-all duration-500 ease-in-out flex flex-col ${window.location.hash === `#${service.id || service.code}` ? 'ring-2 ring-champagne-400 shadow-[0_0_24px_rgba(212,175,55,0.3)]' : ''}`}
               >
-                <div className="relative shrink-0 bg-ivory-100 dark:bg-dark-800" style={{ aspectRatio: '16 / 9' }}>
+                <div className="relative shrink-0 bg-ivory-100 dark:bg-dark-800 cursor-pointer" style={{ aspectRatio: '16 / 9' }} onClick={() => { setMediaService(service); setShowMedia(true); }}>
                   <BlurImage src={service.image || service.image_url} alt={title} className="w-full h-full" />
+                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300 flex items-center justify-center">
+                    <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300 w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-[#D4AF37]/90 flex items-center justify-center">
+                      <Eye className="w-5 h-5 sm:w-6 sm:h-6 text-dark-900" />
+                    </div>
+                  </div>
                 </div>
 
                 <div className="p-4 sm:p-5 lg:p-6 xl:p-7 flex flex-col flex-1">

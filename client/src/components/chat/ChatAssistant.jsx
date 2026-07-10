@@ -65,18 +65,23 @@ export default function ChatAssistant() {
   };
 
   const renderText = useCallback((text) => {
-    const phoneRegex = /(\+212\s*[\d\s]{6,})/g;
+    const phoneRegex = /((?:\+212|0)[5-6]\s*[\d\s]{7,})/g;
     const parts = text.split(phoneRegex);
     return parts.map((part, i) => {
       if (phoneRegex.test(part)) {
         const cleanNum = part.replace(/\s/g, '');
+        const is06 = cleanNum.startsWith('06') || cleanNum.startsWith('+2126');
+        const telNum = cleanNum.startsWith('0') ? '+212' + cleanNum.slice(1) : cleanNum;
         return (
           <span key={i}>
-            <a href={`tel:${cleanNum}`} className="text-[#D4AF37] underline hover:opacity-80">{part}</a>
-            <a href={`https://wa.me/${cleanNum}`} className="inline-flex items-center ml-2 text-green-500 hover:opacity-80 text-xs" target="_blank" rel="noopener noreferrer">
-              <svg className="w-3.5 h-3.5 mr-0.5" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462.953 2.875 1.09 3.074.136.198 1.88 2.868 4.553 3.978.636.252 1.134.402 1.52.514.636.173 1.21.149 1.666.09.507-.064 1.578-.645 1.8-1.27.222-.624.222-1.16.173-1.27-.05-.11-.174-.174-.471-.297Z"/></svg>
-              WhatsApp
-            </a>
+            {is06 ? (
+              <a href={`https://wa.me/${telNum}`} className="inline-flex items-center text-green-600 hover:opacity-80 font-semibold" target="_blank" rel="noopener noreferrer">
+                <svg className="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462.953 2.875 1.09 3.074.136.198 1.88 2.868 4.553 3.978.636.252 1.134.402 1.52.514.636.173 1.21.149 1.666.09.507-.064 1.578-.645 1.8-1.27.222-.624.222-1.16.173-1.27-.05-.11-.174-.174-.471-.297Z"/></svg>
+                {part}
+              </a>
+            ) : (
+              <a href={`tel:${telNum}`} className="text-[#D4AF37] underline hover:opacity-80 font-semibold">{part}</a>
+            )}
           </span>
         );
       }
