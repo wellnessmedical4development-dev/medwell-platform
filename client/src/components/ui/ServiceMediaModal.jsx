@@ -41,7 +41,7 @@ export default function ServiceMediaModal({ isOpen, onClose, service, getTitle }
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          className="fixed inset-0 z-50 flex flex-col bg-black/80 backdrop-blur-sm"
+          className="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 bg-black/80 backdrop-blur-sm"
           onClick={onClose}
         >
           <motion.div
@@ -50,8 +50,7 @@ export default function ServiceMediaModal({ isOpen, onClose, service, getTitle }
             exit={{ opacity: 0, scale: 0.95 }}
             transition={{ type: 'spring', duration: 0.4 }}
             onClick={(e) => e.stopPropagation()}
-            className="relative mx-auto my-auto w-full max-w-2xl bg-[#FDFBF7] dark:bg-dark-900 border-2 border-[#D4AF37] rounded-3xl shadow-2xl flex flex-col"
-            style={{ maxHeight: '90vh' }}
+            className="relative w-full max-w-2xl bg-[#FDFBF7] dark:bg-dark-900 border-2 border-[#D4AF37] rounded-3xl shadow-2xl flex flex-col max-h-[85vh]"
             dir={isRtl ? 'rtl' : 'ltr'}
           >
             <div className="flex items-center justify-between px-5 sm:px-6 pt-4 sm:pt-5 pb-3 border-b border-ivory-200 dark:border-dark-700 shrink-0">
