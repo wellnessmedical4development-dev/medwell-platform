@@ -36,14 +36,14 @@ export default function ServiceMediaModal({ isOpen, onClose, service, getTitle }
   };
 
   return (
-    <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/70" onClick={onClose}>
+    <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/70 p-3 sm:p-4" onClick={onClose}>
       <div
         onClick={(e) => e.stopPropagation()}
-        className="relative w-[95%] sm:w-full max-w-2xl bg-[#FDFBF7] dark:bg-dark-900 border-2 border-[#D4AF37] rounded-3xl shadow-2xl flex flex-col"
-        style={{ maxHeight: '95vh' }}
+        className="relative w-full sm:w-[95%] max-w-2xl bg-[#FDFBF7] dark:bg-dark-900 border-2 border-[#D4AF37] rounded-3xl shadow-2xl overflow-y-auto"
+        style={{ maxHeight: 'calc(100vh - 24px)', WebkitOverflowScrolling: 'touch' }}
         dir={isRtl ? 'rtl' : 'ltr'}
       >
-        <div className="flex items-center justify-between px-4 sm:px-6 pt-3 sm:pt-5 pb-3 border-b border-ivory-200 dark:border-dark-700 shrink-0 min-h-0">
+        <div className="flex items-center justify-between px-3 sm:px-6 pt-3 sm:pt-5 pb-3 border-b border-ivory-200 dark:border-dark-700">
           <div className="flex items-center gap-2 sm:gap-3 min-w-0">
             <div className="w-7 h-7 sm:w-10 sm:h-10 rounded-full bg-champagne-400/10 border border-[#D4AF37] flex items-center justify-center shrink-0">
               <Info className="w-3.5 h-3.5 sm:w-5 sm:h-5 text-[#D4AF37]" />
@@ -60,7 +60,7 @@ export default function ServiceMediaModal({ isOpen, onClose, service, getTitle }
           </button>
         </div>
 
-        <div className="flex-1 overflow-y-auto px-4 sm:px-6 py-3 sm:py-4 space-y-4 min-h-0" style={{ WebkitOverflowScrolling: 'touch' }}>
+        <div className="px-3 sm:px-6 py-3 sm:py-4">
           {description ? (
             <div className="bg-white dark:bg-dark-800/50 rounded-xl border border-ivory-200 dark:border-dark-700 p-3 sm:p-5">
               <p className="text-[13px] sm:text-[15px] text-dark-600 dark:text-ivory-200/80 leading-relaxed sm:leading-7 whitespace-pre-line">
@@ -76,7 +76,7 @@ export default function ServiceMediaModal({ isOpen, onClose, service, getTitle }
           )}
         </div>
 
-        <div className="shrink-0 px-4 sm:px-6 pb-3 sm:pb-5 pt-3 border-t border-ivory-200 dark:border-dark-700">
+        <div className="px-3 sm:px-6 pb-3 sm:pb-5 pt-3 border-t border-ivory-200 dark:border-dark-700">
           <div className="bg-champagne-400/5 border border-champagne-400/20 rounded-xl p-3">
             <h4 className="text-[11px] sm:text-xs font-semibold text-dark-700 dark:text-ivory-200 mb-2 text-center uppercase tracking-wider">
               {lang === 'fr' ? 'Contactez-nous' : lang === 'es' ? 'Contáctenos' : lang === 'ar' ? 'اتصل بنا' : 'Contact Us'}
