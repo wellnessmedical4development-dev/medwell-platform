@@ -21,8 +21,11 @@ export default function ServiceMediaModal({ isOpen, onClose, service, getTitle }
   if (!isOpen) return null;
 
   const title = service ? (getTitle ? getTitle(service) : service.code) : '';
+  const serviceCode = service?.code || '(no code)';
   const detailKey = service?.code ? `services.details.${service.code}` : null;
   const description = detailKey ? t(detailKey) : '';
+  const descType = typeof description;
+  const descLen = description ? description.length : 0;
 
   const openWhatsApp = () => {
     const msg = lang === 'fr'
@@ -62,6 +65,9 @@ export default function ServiceMediaModal({ isOpen, onClose, service, getTitle }
         </div>
 
         <div className="px-3 sm:px-6 py-3 sm:py-4">
+          <div className="text-[11px] text-red-500 mb-2 leading-tight">
+            Code: {serviceCode} | Type: {descType} | Len: {descLen} | Lang: {lang}
+          </div>
           {description ? (
             <div className="bg-white dark:bg-dark-800/50 rounded-xl border border-ivory-200 dark:border-dark-700 p-3 sm:p-5">
               <p className="text-[13px] sm:text-[15px] text-dark-600 dark:text-ivory-200/80 leading-relaxed sm:leading-7 whitespace-pre-line">
